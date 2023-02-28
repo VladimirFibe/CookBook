@@ -20,9 +20,14 @@ class StartScreenViewController: UIViewController {
         backgroundImage.frame = view.bounds
         view.addSubview(backgroundImage)
 
-        titleLabel.text = "Let's cook with me"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
-        titleLabel.textColor = .white
+        titleLabel.text = "let's cookWithMe"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 38)
+        titleLabel.textColor = .red
+        let attributedString = NSMutableAttributedString(string: "let's cookWithMe")
+        let range = (attributedString.string as NSString).range(of: "'s")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range)
+        titleLabel.attributedText = attributedString
+
         
         view.addSubview(titleLabel)
 
