@@ -1,14 +1,13 @@
-//
-//  StartScreenViewController.swift
-//  CookBook
-//
-//  Created by Василий Васильевич on 28.02.2023.
-//
-
 import UIKit
+
+protocol StartScreenViewControllerDelegate: AnyObject {
+    func didFinishOnboarding()
+}
 
 class StartScreenViewController: UIViewController {
 
+    weak var delegate: StartScreenViewControllerDelegate?
+    
     let backgroundImage = UIImageView()
     let getStartedButton = UIButton()
     let titleLabel = UILabel()
@@ -55,14 +54,7 @@ class StartScreenViewController: UIViewController {
         ])
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-
     @objc func getStartedButtonTapped() {
-        let viewController = ViewController()
-        viewController.modalPresentationStyle = .fullScreen
-        present(viewController, animated: true, completion: nil)
+        delegate?.didFinishOnboarding()
     }
 }
