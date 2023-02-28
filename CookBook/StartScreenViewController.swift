@@ -14,7 +14,6 @@ class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         backgroundImage.image = UIImage(named: "backgroundImage")
         backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.frame = view.bounds
