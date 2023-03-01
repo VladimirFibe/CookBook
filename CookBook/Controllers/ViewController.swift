@@ -5,6 +5,10 @@ class ViewController: UITabBarController {
         super.viewDidLoad()
         configureUI()
         
+        DispatchQueue.main.async {
+            let manager = DataManager().getResults()
+        }
+        
     }
     
     private func configureUI() {
