@@ -11,6 +11,9 @@ class RecipeDetailViewController: UIViewController {
     
     //MARK: - let/var
     
+    var videoUIView = VideoUIView()
+    var reviewsUIView = ReviewsUIView()
+    
     private let recipeLabel: UILabel = {
         let label = UILabel()
         label.text = "How to make Tasty Fish (point & Kill)"
@@ -44,6 +47,7 @@ extension RecipeDetailViewController {
     
     private func setupViews() {
         view.addSubview(recipeLabel)
+        recipeLabel.addSubview(videoUIView)
     }
 }
 
@@ -58,5 +62,15 @@ extension RecipeDetailViewController {
             recipeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             recipeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19)
         ])
+        
+        videoUIView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            videoUIView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 19),
+            videoUIView.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: -16),
+            videoUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19)
+        ])
+        
+        
     }
 }

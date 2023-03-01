@@ -1,5 +1,5 @@
 //
-//  DetailUIView.swift
+//  CreatorProfileUIView.swift
 //  CookBook
 //
 //  Created by Ildar Garifullin on 01/03/2023.
@@ -7,8 +7,12 @@
 
 import UIKit
 
-class DetailUIView: UIView {
-
+class CreatorProfileUIView: UIView {
+    
+    //MARK: - let/var
+    
+    //MARK: - life cycle funcs
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -19,11 +23,16 @@ class DetailUIView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - flow funcs
+    
+    //MARK: - public
+    
 }
 
 //MARK: - extensions setupViews
 
-extension DetailUIView {
+extension CreatorProfileUIView {
     
     private func setupViews() {
     }
@@ -31,11 +40,12 @@ extension DetailUIView {
 
 //MARK: - extensions setConstraints
 
-extension DetailUIView {
+extension CreatorProfileUIView {
     
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
+            
         ])
     }
 }
