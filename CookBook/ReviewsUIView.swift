@@ -11,6 +11,14 @@ class ReviewsUIView: UIView {
     
     //MARK: - let/var
     
+    private let ratingIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "star.fill")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
     //MARK: - life cycle funcs
     
     override init(frame: CGRect) {
@@ -26,6 +34,10 @@ class ReviewsUIView: UIView {
     
     //MARK: - flow funcs
     
+    @objc private func ratingButtonTapped() {
+            print("ratingButtonTapped")
+        }
+    
     //MARK: - public
     
 }
@@ -35,6 +47,7 @@ class ReviewsUIView: UIView {
 extension ReviewsUIView {
     
     private func setupViews() {
+        addSubview(ratingIcon)
     }
 }
 
@@ -45,7 +58,10 @@ extension ReviewsUIView {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            
+            ratingIcon.leadingAnchor.constraint(equalTo: leadingAnchor),
+            ratingIcon.topAnchor.constraint(equalTo: topAnchor),
+            ratingIcon.widthAnchor.constraint(equalToConstant: 16),
+            ratingIcon.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
 }

@@ -47,7 +47,8 @@ extension RecipeDetailViewController {
     
     private func setupViews() {
         view.addSubview(recipeLabel)
-        recipeLabel.addSubview(videoUIView)
+        view.addSubview(videoUIView)
+        view.addSubview(reviewsUIView)
     }
 }
 
@@ -67,8 +68,17 @@ extension RecipeDetailViewController {
         
         NSLayoutConstraint.activate([
             videoUIView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 19),
-            videoUIView.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: -16),
-            videoUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19)
+            videoUIView.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 16),
+            videoUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            videoUIView.heightAnchor.constraint(equalToConstant: 223)
+        ])
+        
+        reviewsUIView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            reviewsUIView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 19),
+            reviewsUIView.topAnchor.constraint(equalTo: videoUIView.bottomAnchor, constant: 16),
+            reviewsUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19)
         ])
         
         

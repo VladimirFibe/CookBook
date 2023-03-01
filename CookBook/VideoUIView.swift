@@ -13,8 +13,10 @@ class VideoUIView: UIView {
     
     private let fishImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: "Fish")
-        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -70,10 +72,8 @@ extension VideoUIView {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
+            fishImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             fishImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            fishImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            fishImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            fishImage.widthAnchor.constraint(equalToConstant: 343),
             fishImage.heightAnchor.constraint(equalToConstant: 223)
         ])
         
