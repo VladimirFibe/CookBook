@@ -20,7 +20,7 @@ class SquareRecipe: UIView {
     }
 
     private func setupView() {
-        let imageView = UIImageView(image: UIImage(named: "Pizza"))
+        let imageView = UIImageView(image: UIImage(named: "Food"))
         imageView.contentMode = .scaleAspectFit
         imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         imageView.center = CGPoint(x: center.x + 100, y: center.y + 100)
