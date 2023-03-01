@@ -19,6 +19,7 @@
 		6E21DE9529AE52C400386741 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E21DE9429AE52C400386741 /* UIFont + Extensions.swift */; };
 		6E21DE9929AE5A2300386741 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E21DE9829AE5A2300386741 /* Poppins-SemiBold.ttf */; };
 		6E21DE9C29AE5C9D00386741 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E21DE9B29AE5C9D00386741 /* UIStackView + Extensions.swift */; };
+		D86FB07C29AF688800326403 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86FB07B29AF688800326403 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6E21DE9429AE52C400386741 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		6E21DE9829AE5A2300386741 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		6E21DE9B29AE5C9D00386741 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		D86FB07B29AF688800326403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +70,11 @@
 		2711AB4F29AD016300E99592 /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
-				27CFAB1D29AE6A66001E5947 /* Supporting Files */,
+				D86FB07A29AF687100326403 /* Network */,
 				27CFAB1E29AE6A8F001E5947 /* App */,
 				27CFAB1C29AE6A50001E5947 /* Utilities */,
 				27CFAB1F29AE6AA1001E5947 /* Controllers */,
+				27CFAB1D29AE6A66001E5947 /* Supporting Files */,
 			);
 			path = CookBook;
 			sourceTree = "<group>";
@@ -139,6 +142,14 @@
 				6E21DE9B29AE5C9D00386741 /* UIStackView + Extensions.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		D86FB07A29AF687100326403 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D86FB07B29AF688800326403 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				27CFAB1B29AE66C4001E5947 /* LocalState.swift in Sources */,
 				6E21DE9C29AE5C9D00386741 /* UIStackView + Extensions.swift in Sources */,
 				2711AB5129AD016300E99592 /* AppDelegate.swift in Sources */,
+				D86FB07C29AF688800326403 /* NetworkManager.swift in Sources */,
 				6E21DE9529AE52C400386741 /* UIFont + Extensions.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */,
