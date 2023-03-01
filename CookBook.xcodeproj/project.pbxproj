@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0077C17A29AF83880016041B /* SquareRecipeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077C17929AF83880016041B /* SquareRecipeUIView.swift */; };
 		0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */; };
+		2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700EC9329AF836E00DC3F3A /* MainViewController.swift */; };
 		2711AB5129AD016300E99592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5029AD016300E99592 /* AppDelegate.swift */; };
 		2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5229AD016300E99592 /* SceneDelegate.swift */; };
 		2711AB5529AD016300E99592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5429AD016300E99592 /* ViewController.swift */; };
@@ -25,7 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0077C17929AF83880016041B /* SquareRecipeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareRecipeUIView.swift; sourceTree = "<group>"; };
 		0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		2700EC9329AF836E00DC3F3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2711AB4D29AD016300E99592 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2711AB5029AD016300E99592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2711AB5229AD016300E99592 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			children = (
 				2711AB5429AD016300E99592 /* ViewController.swift */,
 				0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */,
+				2700EC9329AF836E00DC3F3A /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				D86FB07E29AF907700326403 /* RecipeStruct.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */,
+				2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

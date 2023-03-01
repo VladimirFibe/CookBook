@@ -12,7 +12,7 @@ class ViewController: UITabBarController {
     }
     
     private func configureUI() {
-        let main = UIViewController()
+        let main = UINavigationController(rootViewController: MainViewController())
         let recipe = UIViewController()
         let favorite = UIViewController()
         
