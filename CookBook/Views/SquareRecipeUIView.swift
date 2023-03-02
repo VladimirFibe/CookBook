@@ -9,38 +9,50 @@ import SwiftUI
 
 class SquareRecipe: UICollectionViewCell {
 
+    let imageView = UIImageView(image: UIImage(named: "Food"))
+    let label = UILabel()
+    let authorLabel = UILabel()
+    
+    lazy var stack = UIStackView(arrangedSubviews: [imageView, label, authorLabel])
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
     }
 
     private func setupView() {
-        let imageView = UIImageView(image: UIImage(named: "Food"))
+        contentView.addSubview(stack)
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        imageView.center = CGPoint(x: center.x + 100, y: center.y + 100)
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-        contentView.addSubview(imageView)
 
-        let label = UILabel()
-        label.text = "Яичница"
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.sizeToFit()
-        label.frame.origin = CGPoint(x: imageView.frame.minX, y: imageView.frame.maxY + 20)
-        addSubview(label)
-
-        let authorLabel = UILabel()
+        label.text = "Kelewele Ghanian Recipe"
+        label.font = .poppins(14, weight: .semibold)
+        label.font = .cooking(.label, weight: .bold)
+        label.numberOfLines = 2
+        label.textColor = .label
+        
         authorLabel.text = "By Anthony Bourdain"
-        authorLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        authorLabel.textColor = .gray
+        authorLabel.font = .poppins(10, weight: .regular)
+        authorLabel.textColor = .secondaryLabel
         authorLabel.sizeToFit()
-        authorLabel.frame.origin = CGPoint(x: imageView.frame.minX, y: label.frame.maxY + 10)
-        addSubview(authorLabel)
+        
+        stack.axis = .vertical
+        stack.alignment = .leading
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stack.widthAnchor.constraint(equalToConstant: 124),
+            imageView.widthAnchor.constraint(equalTo: stack.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+            stack.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }

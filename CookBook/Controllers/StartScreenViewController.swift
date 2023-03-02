@@ -21,7 +21,7 @@ class StartScreenViewController: UIViewController {
         view.addSubview(backgroundImage)
 
         titleLabel.text = "let's cookWithMe"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 38)
+        titleLabel.font = .poppins(38, weight: .bold)
         titleLabel.textColor = .red
         let attributedString = NSMutableAttributedString(string: "let's cookWithMe")
         let range = (attributedString.string as NSString).range(of: "'s")
@@ -31,8 +31,8 @@ class StartScreenViewController: UIViewController {
         view.addSubview(titleLabel)
 
         getStartedButton.setTitle("Get Started", for: .normal)
-        getStartedButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        getStartedButton.backgroundColor = .red
+        getStartedButton.titleLabel?.font = .poppins(16, weight: .bold)
+        getStartedButton.backgroundColor = .primary50
         getStartedButton.layer.cornerRadius = 10
         getStartedButton.addTarget(self, action: #selector(getStartedButtonTapped), for: .touchUpInside)
         getStartedButton.translatesAutoresizingMaskIntoConstraints = false
