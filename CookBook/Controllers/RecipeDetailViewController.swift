@@ -78,7 +78,8 @@ extension RecipeDetailViewController {
         NSLayoutConstraint.activate([
             reviewsUIView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 19),
             reviewsUIView.topAnchor.constraint(equalTo: videoUIView.bottomAnchor, constant: 16),
-            reviewsUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19)
+            reviewsUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            reviewsUIView.heightAnchor.constraint(equalToConstant: 20)
         ])
         
         

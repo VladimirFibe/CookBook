@@ -7,9 +7,13 @@
 
 import UIKit
 
+//изменить размер иконки
+
 class ReviewsUIView: UIView {
     
     //MARK: - let/var
+    
+    var reviewsStackView = UIStackView()
     
     private let ratingIcon: UIImageView = {
         let imageView = UIImageView()
@@ -17,6 +21,26 @@ class ReviewsUIView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
+    }()
+    
+    private let ratingLabel: UILabel = {
+        let label = UILabel()
+        label.text = "4,5"
+        label.textColor = .black
+        label.font = .poppinsSemiBold14()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private let reviewsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "(300 Reviews)"
+        label.textColor = .systemGray
+        label.font = .poppinsRegular14()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
     }()
     
     //MARK: - life cycle funcs
@@ -47,7 +71,19 @@ class ReviewsUIView: UIView {
 extension ReviewsUIView {
     
     private func setupViews() {
-        addSubview(ratingIcon)
+        
+        reviewsStackView = UIStackView(
+            arrangedSubviews: [
+                ratingIcon,
+                ratingLabel,
+                reviewsLabel
+            ],
+            axis: .horizontal,
+            spacing: 4,
+            distribution: .fill
+        )
+        
+        addSubview(reviewsStackView)
     }
 }
 
@@ -58,10 +94,9 @@ extension ReviewsUIView {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            ratingIcon.leadingAnchor.constraint(equalTo: leadingAnchor),
-            ratingIcon.topAnchor.constraint(equalTo: topAnchor),
-            ratingIcon.widthAnchor.constraint(equalToConstant: 16),
-            ratingIcon.heightAnchor.constraint(equalToConstant: 16)
+            reviewsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            reviewsStackView.topAnchor.constraint(equalTo: topAnchor),
+            reviewsStackView.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }
