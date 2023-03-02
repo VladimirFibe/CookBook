@@ -15,13 +15,14 @@ class ReviewsUIView: UIView {
     
     var reviewsStackView = UIStackView()
     
-    private let ratingIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "star.fill")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private let ratingIcon: UILabel = {
+        let label = UILabel()
+        label.text = "★"
+        label.font = UIFont.systemFont(ofSize: 10)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+        }()
     
     private let ratingLabel: UILabel = {
         let label = UILabel()
