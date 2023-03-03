@@ -7,27 +7,24 @@
 
 import UIKit
 
-//изменить размер иконки
-
 class ReviewsUIView: UIView {
     
     //MARK: - let/var
     
     var reviewsStackView = UIStackView()
     
-    private let ratingIcon: UILabel = {
-        let label = UILabel()
-        label.text = "★"
-        label.font = UIFont.systemFont(ofSize: 10)
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
-        }()
+    private let ratingIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "star.fill")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
     
     private let ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "4,5"
-        label.textColor = .black
+        label.textColor = .neutral100
         label.font = .poppinsSemiBold14()
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -37,7 +34,7 @@ class ReviewsUIView: UIView {
     private let reviewsLabel: UILabel = {
         let label = UILabel()
         label.text = "(300 Reviews)"
-        label.textColor = .systemGray
+        label.textColor = .neutral50
         label.font = .poppinsRegular14()
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -80,10 +77,8 @@ extension ReviewsUIView {
                 reviewsLabel
             ],
             axis: .horizontal,
-            spacing: 4,
-            distribution: .fill
+            spacing: 4
         )
-        
         addSubview(reviewsStackView)
     }
 }
@@ -96,8 +91,12 @@ extension ReviewsUIView {
         
         NSLayoutConstraint.activate([
             reviewsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            reviewsStackView.topAnchor.constraint(equalTo: topAnchor),
-            reviewsStackView.heightAnchor.constraint(equalToConstant: 20)
+            reviewsStackView.topAnchor.constraint(equalTo: topAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            ratingIcon.widthAnchor.constraint(equalToConstant: 16),
+            ratingIcon.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
 }

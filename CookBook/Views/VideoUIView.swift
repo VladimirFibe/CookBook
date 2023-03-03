@@ -72,7 +72,8 @@ extension VideoUIView {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            fishImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            fishImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            fishImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             fishImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             fishImage.heightAnchor.constraint(equalToConstant: 223)
         ])
