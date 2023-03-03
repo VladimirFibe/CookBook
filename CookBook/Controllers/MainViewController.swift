@@ -2,7 +2,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    var recipeView = SquareRecipe()
+    var recipeView = RoundImageUIView()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .success10
