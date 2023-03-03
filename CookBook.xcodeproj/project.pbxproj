@@ -22,6 +22,10 @@
 		6E21DE9529AE52C400386741 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E21DE9429AE52C400386741 /* UIFont + Extensions.swift */; };
 		6E21DE9929AE5A2300386741 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E21DE9829AE5A2300386741 /* Poppins-SemiBold.ttf */; };
 		6E21DE9C29AE5C9D00386741 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E21DE9B29AE5C9D00386741 /* UIStackView + Extensions.swift */; };
+		6EFE8D5529AF916400BF1AC5 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE8D5429AF916400BF1AC5 /* RecipeDetailViewController.swift */; };
+		6EFE8D5729AF91CE00BF1AC5 /* VideoUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE8D5629AF91CE00BF1AC5 /* VideoUIView.swift */; };
+		6EFE8D5929AFCD0A00BF1AC5 /* ReviewsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE8D5829AFCD0A00BF1AC5 /* ReviewsUIView.swift */; };
+		6EFE8D5B29AFCDE900BF1AC5 /* CreatorProfileUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE8D5A29AFCDE900BF1AC5 /* CreatorProfileUIView.swift */; };
 		D86FB07C29AF688800326403 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86FB07B29AF688800326403 /* NetworkManager.swift */; };
 		D86FB07E29AF907700326403 /* RecipeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86FB07D29AF907700326403 /* RecipeStruct.swift */; };
 		D86FB08129AF93A000326403 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86FB08029AF93A000326403 /* DataManager.swift */; };
@@ -45,6 +49,10 @@
 		6E21DE9429AE52C400386741 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		6E21DE9829AE5A2300386741 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		6E21DE9B29AE5C9D00386741 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		6EFE8D5429AF916400BF1AC5 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		6EFE8D5629AF91CE00BF1AC5 /* VideoUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUIView.swift; sourceTree = "<group>"; };
+		6EFE8D5829AFCD0A00BF1AC5 /* ReviewsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsUIView.swift; sourceTree = "<group>"; };
+		6EFE8D5A29AFCDE900BF1AC5 /* CreatorProfileUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorProfileUIView.swift; sourceTree = "<group>"; };
 		D86FB07B29AF688800326403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D86FB07D29AF907700326403 /* RecipeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStruct.swift; sourceTree = "<group>"; };
 		D86FB08029AF93A000326403 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -86,6 +94,10 @@
 				27CFAB1E29AE6A8F001E5947 /* App */,
 				27CFAB1C29AE6A50001E5947 /* Utilities */,
 				27CFAB1F29AE6AA1001E5947 /* Controllers */,
+				0077C17929AF83880016041B /* SquareRecipeUIView.swift */,
+				6EFE8D5629AF91CE00BF1AC5 /* VideoUIView.swift */,
+				6EFE8D5829AFCD0A00BF1AC5 /* ReviewsUIView.swift */,
+				6EFE8D5A29AFCDE900BF1AC5 /* CreatorProfileUIView.swift */,
 				27CFAB1D29AE6A66001E5947 /* Supporting Files */,
 			);
 			path = CookBook;
@@ -134,6 +146,7 @@
 				2711AB5429AD016300E99592 /* ViewController.swift */,
 				0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */,
 				2700EC9329AF836E00DC3F3A /* MainViewController.swift */,
+				6EFE8D5429AF916400BF1AC5 /* RecipeDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -261,6 +274,8 @@
 				27CFAB1B29AE66C4001E5947 /* LocalState.swift in Sources */,
 				273E93EB29B05DC8009F648F /* UIColor+Extensions.swift in Sources */,
 				6E21DE9C29AE5C9D00386741 /* UIStackView + Extensions.swift in Sources */,
+				6EFE8D5729AF91CE00BF1AC5 /* VideoUIView.swift in Sources */,
+				6EFE8D5929AFCD0A00BF1AC5 /* ReviewsUIView.swift in Sources */,
 				2711AB5129AD016300E99592 /* AppDelegate.swift in Sources */,
 				2786848229AFA71E005D9FDB /* SquareRecipeUIView.swift in Sources */,
 				D86FB07C29AF688800326403 /* NetworkManager.swift in Sources */,
@@ -268,6 +283,8 @@
 				D86FB07E29AF907700326403 /* RecipeStruct.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */,
+				6EFE8D5B29AFCDE900BF1AC5 /* CreatorProfileUIView.swift in Sources */,
+				6EFE8D5529AF916400BF1AC5 /* RecipeDetailViewController.swift in Sources */,
 				2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
