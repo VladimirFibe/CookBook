@@ -11,86 +11,11 @@ class RecipeUIView: UIView {
     
     //MARK: - let/var
     
-    var reviewsStackView = UIStackView()
+    var recipeInfoStackView = UIStackView()
+    
     var dishNameStackView = UIStackView()
     var creatorProfileStackView = UIStackView()
-    
-    private let testImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "TestImageSharwama")
-        imageView.layer.cornerRadius = 10
-        imageView.layer.masksToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private let playButton: UIButton = {
-        let button = UIButton(type: .system)
-        let image = UIImage(named: "PlayButton")?.withRenderingMode(.alwaysOriginal)
-        button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
-    private let reviewsUIView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .neutral50
-        view.layer.cornerRadius = 8
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
-    
-    private let ratingIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "star.fill")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private let ratingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "4,5"
-        label.textColor = .white
-        label.font = .poppinsSemiBold14()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let bookmarkButton: UIButton = {
-        let button = UIButton(type: .system)
-        let image = UIImage(named: "Bookmark")?.withRenderingMode(.alwaysOriginal)
-        button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
-    private let timesUIView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .neutral50
-        view.layer.cornerRadius = 8
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
-    
-    private let timesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "2:00"
-        label.textColor = .white
-        label.font = .poppinsRegular12()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    var fullVideoUIView = FullVideoUIView()
     
     private let dishNameLabel: UILabel = {
         let label = UILabel()
@@ -153,14 +78,6 @@ class RecipeUIView: UIView {
     
     //MARK: - flow funcs
     
-    @objc private func playButtonTapped() {
-        print("playButtonTapped")
-    }
-    
-    @objc private func bookmarkButtonTapped() {
-        print("bookmarkButtonTapped")
-    }
-    
     @objc private func moreButtonTapped() {
         print("moreButtonTapped")
     }
@@ -174,25 +91,6 @@ class RecipeUIView: UIView {
 extension RecipeUIView {
     
     private func setupViews() {
-        addSubview(testImage)
-        
-        testImage.addSubview(playButton)
-        testImage.addSubview(reviewsUIView)
-        
-        reviewsStackView = UIStackView(
-            arrangedSubviews: [
-                ratingIcon,
-                ratingLabel
-            ],
-            axis: .horizontal,
-            spacing: 4
-        )
-        reviewsUIView.addSubview(reviewsStackView)
-        
-        testImage.addSubview(bookmarkButton)
-        
-        testImage.addSubview(timesUIView)
-        timesUIView.addSubview(timesLabel)
         
         dishNameStackView = UIStackView(
             arrangedSubviews: [
@@ -213,6 +111,17 @@ extension RecipeUIView {
             spacing: 8
         )
         addSubview(creatorProfileStackView)
+        
+        recipeInfoStackView = UIStackView(
+            arrangedSubviews: [
+                fullVideoUIView,
+                dishNameStackView,
+                creatorProfileStackView
+            ],
+            axis: .vertical,
+            spacing: 16
+        )
+        addSubview(recipeInfoStackView)
     }
 }
 
@@ -221,56 +130,6 @@ extension RecipeUIView {
 extension RecipeUIView {
     
     private func setConstraints() {
-        
-        NSLayoutConstraint.activate([
-            testImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            testImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            testImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            testImage.heightAnchor.constraint(equalToConstant: 180)
-        ])
-        
-        NSLayoutConstraint.activate([
-            playButton.centerXAnchor.constraint(equalTo: testImage.centerXAnchor),
-            playButton.centerYAnchor.constraint(equalTo: testImage.centerYAnchor),
-            playButton.widthAnchor.constraint(equalToConstant: 48),
-            playButton.heightAnchor.constraint(equalToConstant: 48)
-        ])
-        
-        NSLayoutConstraint.activate([
-            reviewsUIView.leadingAnchor.constraint(equalTo: testImage.leadingAnchor, constant: 8),
-            reviewsUIView.topAnchor.constraint(equalTo: testImage.topAnchor,constant: 8),
-            reviewsUIView.widthAnchor.constraint(equalToConstant: 58),
-            reviewsUIView.heightAnchor.constraint(equalToConstant: 27.6)
-        ])
-        
-        NSLayoutConstraint.activate([
-            ratingIcon.widthAnchor.constraint(equalToConstant: 12),
-            ratingIcon.heightAnchor.constraint(equalToConstant: 12)
-        ])
-        
-        NSLayoutConstraint.activate([
-            reviewsStackView.centerXAnchor.constraint(equalTo: reviewsUIView.centerXAnchor),
-            reviewsStackView.centerYAnchor.constraint(equalTo: reviewsUIView.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            bookmarkButton.trailingAnchor.constraint(equalTo: testImage.trailingAnchor, constant: -8),
-            bookmarkButton.topAnchor.constraint(equalTo: testImage.topAnchor,constant: 8),
-            bookmarkButton.widthAnchor.constraint(equalToConstant: 32),
-            bookmarkButton.heightAnchor.constraint(equalToConstant: 32)
-        ])
-        
-        NSLayoutConstraint.activate([
-            timesUIView.trailingAnchor.constraint(equalTo: testImage.trailingAnchor, constant: -8),
-            timesUIView.bottomAnchor.constraint(equalTo: testImage.bottomAnchor, constant: -8),
-            timesUIView.widthAnchor.constraint(equalToConstant: 41),
-            timesUIView.heightAnchor.constraint(equalToConstant: 25)
-        ])
-        
-        NSLayoutConstraint.activate([
-            timesLabel.centerXAnchor.constraint(equalTo: timesUIView.centerXAnchor),
-            timesLabel.centerYAnchor.constraint(equalTo: timesUIView.centerYAnchor)
-        ])
         
         NSLayoutConstraint.activate([
             dishNameLabel.widthAnchor.constraint(equalToConstant: 220),
@@ -282,12 +141,6 @@ extension RecipeUIView {
         ])
         
         NSLayoutConstraint.activate([
-            dishNameStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dishNameStackView.topAnchor.constraint(equalTo: testImage.bottomAnchor, constant: 12),
-            dishNameStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
             сreatorImageView.widthAnchor.constraint(equalToConstant: 32),
             сreatorImageView.heightAnchor.constraint(equalToConstant: 32)
         ])
@@ -296,6 +149,12 @@ extension RecipeUIView {
             creatorProfileStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             creatorProfileStackView.topAnchor.constraint(equalTo: dishNameStackView.bottomAnchor, constant: 12),
             creatorProfileStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            recipeInfoStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            recipeInfoStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            recipeInfoStackView.heightAnchor.constraint(equalToConstant: 254)
         ])
         
     }

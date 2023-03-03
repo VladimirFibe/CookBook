@@ -47,6 +47,7 @@ extension FavoriteViewController {
         NSLayoutConstraint.activate([
             recipeUIView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             recipeUIView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            recipeUIView.heightAnchor.constraint(equalToConstant: 254)
         ])
     }
 }
