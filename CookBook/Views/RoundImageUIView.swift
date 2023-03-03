@@ -31,7 +31,7 @@ class RoundImageUIView: UICollectionViewCell {
         stack.axis = .vertical
         stack.alignment = .center
         stack.distribution = .equalSpacing
-        stack.spacing = 8 // add spacing between image and label
+        stack.spacing = 8
         stack.translatesAutoresizingMaskIntoConstraints = false
 
         stack.addArrangedSubview(imageView)
