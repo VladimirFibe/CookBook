@@ -12,6 +12,8 @@ class RecipeUIView: UIView {
     //MARK: - let/var
     
     var reviewsStackView = UIStackView()
+    var dishNameStackView = UIStackView()
+    var creatorProfileStackView = UIStackView()
     
     private let testImage: UIImageView = {
         let imageView = UIImageView()
@@ -90,6 +92,52 @@ class RecipeUIView: UIView {
         return label
     }()
     
+    private let dishNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "How to sharwama at home"
+        label.textColor = .neutral100
+        label.font = .poppinsSemiBold14()
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private let moreButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(named: "Union")?.withRenderingMode(.alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    private let сreatorImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.isUserInteractionEnabled = true
+        imageView.image = UIImage(named: "Creator")
+        imageView.layer.cornerRadius = 20
+        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    private let сreatorNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "By Zeelicious foods"
+        label.font = .poppinsRegular12()
+        label.textColor = .neutral50
+        label.textAlignment = .left
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    
     //MARK: - life cycle funcs
     
     override init(frame: CGRect) {
@@ -113,6 +161,10 @@ class RecipeUIView: UIView {
         print("bookmarkButtonTapped")
     }
     
+    @objc private func moreButtonTapped() {
+        print("moreButtonTapped")
+    }
+    
     //MARK: - public
     
 }
@@ -124,8 +176,8 @@ extension RecipeUIView {
     private func setupViews() {
         addSubview(testImage)
         
-        addSubview(playButton)
-        addSubview(reviewsUIView)
+        testImage.addSubview(playButton)
+        testImage.addSubview(reviewsUIView)
         
         reviewsStackView = UIStackView(
             arrangedSubviews: [
@@ -135,9 +187,32 @@ extension RecipeUIView {
             axis: .horizontal,
             spacing: 4
         )
-        addSubview(reviewsStackView)
+        reviewsUIView.addSubview(reviewsStackView)
         
-        addSubview(bookmarkButton)
+        testImage.addSubview(bookmarkButton)
+        
+        testImage.addSubview(timesUIView)
+        timesUIView.addSubview(timesLabel)
+        
+        dishNameStackView = UIStackView(
+            arrangedSubviews: [
+                dishNameLabel,
+                moreButton
+            ],
+            axis: .horizontal,
+            spacing: 0
+        )
+        addSubview(dishNameStackView)
+        
+        creatorProfileStackView = UIStackView(
+            arrangedSubviews: [
+                сreatorImageView,
+                сreatorNameLabel
+            ],
+            axis: .horizontal,
+            spacing: 8
+        )
+        addSubview(creatorProfileStackView)
     }
 }
 
@@ -184,5 +259,44 @@ extension RecipeUIView {
             bookmarkButton.widthAnchor.constraint(equalToConstant: 32),
             bookmarkButton.heightAnchor.constraint(equalToConstant: 32)
         ])
+        
+        NSLayoutConstraint.activate([
+            timesUIView.trailingAnchor.constraint(equalTo: testImage.trailingAnchor, constant: -8),
+            timesUIView.bottomAnchor.constraint(equalTo: testImage.bottomAnchor, constant: -8),
+            timesUIView.widthAnchor.constraint(equalToConstant: 41),
+            timesUIView.heightAnchor.constraint(equalToConstant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            timesLabel.centerXAnchor.constraint(equalTo: timesUIView.centerXAnchor),
+            timesLabel.centerYAnchor.constraint(equalTo: timesUIView.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dishNameLabel.widthAnchor.constraint(equalToConstant: 220),
+            dishNameLabel.heightAnchor.constraint(equalToConstant: 22)
+        ])
+        
+        NSLayoutConstraint.activate([
+            moreButton.widthAnchor.constraint(equalToConstant: 15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dishNameStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dishNameStackView.topAnchor.constraint(equalTo: testImage.bottomAnchor, constant: 12),
+            dishNameStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            сreatorImageView.widthAnchor.constraint(equalToConstant: 32),
+            сreatorImageView.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        
+        NSLayoutConstraint.activate([
+            creatorProfileStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            creatorProfileStackView.topAnchor.constraint(equalTo: dishNameStackView.bottomAnchor, constant: 12),
+            creatorProfileStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        
     }
 }
