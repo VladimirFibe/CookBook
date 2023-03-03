@@ -13,7 +13,8 @@ class ViewController: UITabBarController {
     
     private func configureUI() {
         let main = UINavigationController(rootViewController: MainViewController())
-        let recipe = RecipeDetailViewController()
+        //let recipe = RecipeDetailViewController()
+        let recipe = SavedRecipesVC()
         let favorite = FavoriteViewController()
         
         main.view.backgroundColor = .systemBackground

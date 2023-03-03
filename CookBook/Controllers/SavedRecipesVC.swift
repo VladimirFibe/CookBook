@@ -18,6 +18,22 @@ class SavedRecipesVC: UIViewController {
         return label
     }()
     
+    private let segmentControl: UISegmentedControl = {
+       let control = UISegmentedControl(items: ["Video", "Recipe"])
+        control.selectedSegmentIndex = 0
+        control.selectedSegmentTintColor = .primary50
+        control.backgroundColor = .clear
+        let font: UIFont = .poppinsRegular12()!
+        control.setTitleTextAttributes([NSAttributedString.Key.font: font as Any,
+                                        NSAttributedString.Key.foregroundColor: UIColor.white],
+                                       for: .selected)
+        control.setTitleTextAttributes([NSAttributedString.Key.font: font as Any,
+                                        NSAttributedString.Key.foregroundColor: UIColor.primary30 ?? UIColor.red],
+                                       for: .normal)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
+    
     
     
     override func viewDidLoad() {
@@ -28,6 +44,7 @@ class SavedRecipesVC: UIViewController {
     
     private func setupViews() {
         view.addSubview(mainLabel)
+        view.addSubview(segmentControl)
     }
     
     
@@ -42,8 +59,13 @@ extension SavedRecipesVC {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
+            mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
             mainLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            
+            segmentControl.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 35),
+            segmentControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            segmentControl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16)
+            
         ])
     }
     
