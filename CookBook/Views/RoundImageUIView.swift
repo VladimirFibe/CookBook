@@ -1,11 +1,11 @@
 import SwiftUI
 
-class SquareRecipe: UICollectionViewCell {
+class RoundImageUIView: UICollectionViewCell {
 
     let imageView = UIImageView(image: UIImage(named: "Food"))
     let label = UILabel()
     let authorLabel = UILabel()
-    
+
     lazy var stack = UIStackView(arrangedSubviews: [imageView, label, authorLabel])
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,30 +18,30 @@ class SquareRecipe: UICollectionViewCell {
 
     private func setupView() {
         contentView.addSubview(stack)
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
+
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 55
         imageView.layer.masksToBounds = true
 
-        label.text = "Kelewele Ghanian Recipe"
-        label.font = .poppins(14, weight: .semibold)
-        label.font = .cooking(.label, weight: .bold)
+        label.text = "Ifly's Kitchen"
+        label.font = .poppins(12, weight: .semibold)
         label.numberOfLines = 2
         label.textColor = .label
-        
-        authorLabel.text = "By Anthony Bourdain"
-        authorLabel.font = .poppins(10, weight: .regular)
-        authorLabel.textColor = .secondaryLabel
-        authorLabel.sizeToFit()
-        
+
         stack.axis = .vertical
-        stack.alignment = .leading
+        stack.alignment = .center
         stack.distribution = .equalSpacing
+        stack.spacing = 8 // add spacing between image and label
         stack.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        stack.addArrangedSubview(imageView)
+        stack.addArrangedSubview(label)
+        stack.addArrangedSubview(authorLabel)
+
         NSLayoutConstraint.activate([
             stack.widthAnchor.constraint(equalToConstant: 124),
-            imageView.widthAnchor.constraint(equalTo: stack.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 110),
+            imageView.heightAnchor.constraint(equalToConstant: 110),
             stack.topAnchor.constraint(equalTo: contentView.topAnchor),
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

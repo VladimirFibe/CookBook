@@ -1,10 +1,3 @@
-//
-//  UIStackView + Extensions.swift
-//  CookBook
-//
-//  Created by Ildar Garifullin on 28/02/2023.
-//
-
 import UIKit
 
 extension UIStackView {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00274CC329B1E2FB00B9EA28 /* RoundImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00274CC229B1E2FB00B9EA28 /* RoundImageUIView.swift */; };
 		0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */; };
 		2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700EC9329AF836E00DC3F3A /* MainViewController.swift */; };
 		2711AB5129AD016300E99592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5029AD016300E99592 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00274CC229B1E2FB00B9EA28 /* RoundImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageUIView.swift; sourceTree = "<group>"; };
 		0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2700EC9329AF836E00DC3F3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2711AB4D29AD016300E99592 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */,
+				00274CC229B1E2FB00B9EA28 /* RoundImageUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2711AB5529AD016300E99592 /* ViewController.swift in Sources */,
+				00274CC329B1E2FB00B9EA28 /* RoundImageUIView.swift in Sources */,
 				D86FB08129AF93A000326403 /* DataManager.swift in Sources */,
 				27CFAB1B29AE66C4001E5947 /* LocalState.swift in Sources */,
 				273E93EB29B05DC8009F648F /* UIColor+Extensions.swift in Sources */,
