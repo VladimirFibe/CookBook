@@ -66,6 +66,8 @@ class FullVideoUIView: UIView {
         let button = UIButton(type: .system)
         let image = UIImage(named: "Bookmark")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 16
         button.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
