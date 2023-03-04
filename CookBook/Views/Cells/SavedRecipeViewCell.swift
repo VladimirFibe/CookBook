@@ -20,11 +20,20 @@ class SavedRecipeViewCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
        let label = UILabel()
         label.text = "How to make shawarma at home"
-        label.font = .poppinsSemiBold16() ?? .systemFont(ofSize: 16)
+        label.font = .poppins(16, weight: PoppinsWeight.semibold) ?? .systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    private let moreButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(named: "Union")?.withRenderingMode(.alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var firstStackView = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,9 +48,11 @@ class SavedRecipeViewCell: UICollectionViewCell {
     }
     
     private func setupViews() {
+        
+        firstStackView = UIStackView(arrangedSubviews: [nameLabel, moreButton], axis: .horizontal, spacing: 0)
         addSubview(imageDish)
         addSubview(nameLabel)
-       // backgroundColor = .green
+        addSubview(firstStackView)
     }
     
     private func setupConstraints() {
@@ -52,8 +63,10 @@ class SavedRecipeViewCell: UICollectionViewCell {
             imageDish.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageDish.heightAnchor.constraint(equalToConstant: 320),
             
-            nameLabel.topAnchor.constraint(equalTo: imageDish.bottomAnchor, constant: 5),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+            moreButton.widthAnchor.constraint(equalToConstant: 15),
+            
+            firstStackView.topAnchor.constraint(equalTo: imageDish.bottomAnchor, constant: 5),
+            firstStackView.centerXAnchor.constraint(equalTo: imageDish.centerXAnchor)
             
         ])
         
