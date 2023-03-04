@@ -1,12 +1,4 @@
-//
-//  NetworkManager.swift
-//  CookBook
-//
-//  Created by Aleksandr Kan on 01/03/23.
-//
-
 import Foundation
-
 
 class NetworkManager {
 
