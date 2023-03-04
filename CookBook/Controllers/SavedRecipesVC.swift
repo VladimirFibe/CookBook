@@ -42,6 +42,7 @@ class SavedRecipesVC: UIViewController {
         collection.backgroundColor = .none
         collection.showsVerticalScrollIndicator = false
         collection.bounces = false
+        collection.delaysContentTouches = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()

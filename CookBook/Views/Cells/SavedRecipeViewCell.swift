@@ -26,14 +26,39 @@ class SavedRecipeViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let moreButton: UIButton = {
+    private lazy var moreButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "Union")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
-       // button.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        
+        button.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let ratingLabel: UIButton = {
+        let button = UIButton()
+        button.setTitle("5.0", for: .normal)
+        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        button.backgroundColor = .darkGray.withAlphaComponent(0.8)
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isUserInteractionEnabled = false
+        return button
+    }()
+    
+    private let bookmarkButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(named: "Bookmark")?.withRenderingMode(.alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius =  16
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    @objc
+    private func moreButtonTapped() { print("TAPPED") }
     
     private var firstStackView = UIStackView()
     
@@ -51,25 +76,36 @@ class SavedRecipeViewCell: UICollectionViewCell {
     
     private func setupViews() {
         //backgroundColor = .green
-        firstStackView = UIStackView(arrangedSubviews: [nameLabel, moreButton], axis: .horizontal, spacing: 0)
-        addSubview(imageDish)
-        addSubview(nameLabel)
+        firstStackView = UIStackView(arrangedSubviews: [nameLabel, moreButton], axis: .horizontal, spacing: 10)
+        contentView.addSubview(imageDish)
+        contentView.addSubview(ratingLabel)
         contentView.addSubview(firstStackView)
-       // addSubview(firstStackView)
+        contentView.addSubview(bookmarkButton)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            imageDish.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            imageDish.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageDish.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageDish.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            imageDish.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageDish.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageDish.heightAnchor.constraint(equalToConstant: 320),
             
-            moreButton.widthAnchor.constraint(equalToConstant: 20),
+           // moreButton.widthAnchor.constraint(equalToConstant: 20),
+            ratingLabel.topAnchor.constraint(equalTo: imageDish.topAnchor, constant: 10),
+            ratingLabel.leadingAnchor.constraint(equalTo: imageDish.leadingAnchor, constant: 10),
+            ratingLabel.widthAnchor.constraint(equalToConstant: 60),
+            ratingLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            bookmarkButton.topAnchor.constraint(equalTo: imageDish.topAnchor, constant: 10),
+            bookmarkButton.trailingAnchor.constraint(equalTo: imageDish.trailingAnchor, constant: -10),
+            bookmarkButton.widthAnchor.constraint(equalToConstant: 32),
+            bookmarkButton.heightAnchor.constraint(equalToConstant: 32),
         
             firstStackView.topAnchor.constraint(equalTo: imageDish.bottomAnchor, constant: 15),
-            firstStackView.leadingAnchor.constraint(equalTo: leadingAnchor)
+            firstStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            firstStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            
             
             
         ])
