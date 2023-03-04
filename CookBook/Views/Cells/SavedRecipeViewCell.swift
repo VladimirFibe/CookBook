@@ -9,20 +9,28 @@ import UIKit
 
 class SavedRecipeViewCell: UICollectionViewCell {
     
-    private let label: UILabel = {
-       let test = UILabel()
-        test.text = "TEST"
-        test.textColor = .red
-        test.translatesAutoresizingMaskIntoConstraints = false
-        return test
+    private let imageDish: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "Food")
+        imageView.layer.cornerRadius = 10
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let nameLabel: UILabel = {
+       let label = UILabel()
+        label.text = "How to make shawarma at home"
+        label.font = .poppinsSemiBold16() ?? .systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .green
-        addSubview(label)
+        
+        setupViews()
         setupConstraints()
     }
     
@@ -30,11 +38,22 @@ class SavedRecipeViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupViews() {
+        addSubview(imageDish)
+        addSubview(nameLabel)
+       // backgroundColor = .green
+    }
+    
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
+            imageDish.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imageDish.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageDish.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageDish.heightAnchor.constraint(equalToConstant: 320),
+            
+            nameLabel.topAnchor.constraint(equalTo: imageDish.bottomAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
             
         ])
         

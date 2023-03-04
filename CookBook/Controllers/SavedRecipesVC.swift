@@ -36,9 +36,12 @@ class SavedRecipesVC: UIViewController {
     }()
     
     private var collectionView: UICollectionView = {
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.backgroundColor = .red
+        collection.backgroundColor = .none
+        collection.showsVerticalScrollIndicator = false
+        collection.bounces = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
@@ -88,8 +91,7 @@ extension SavedRecipesVC {
             collectionView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 10),
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
-            
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
@@ -100,14 +102,11 @@ extension SavedRecipesVC {
 extension SavedRecipesVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("HELLO!")
-       return 3
+       return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idRecipeCell, for: indexPath) as! SavedRecipeViewCell
-        
-        print("CELLLLLLLLLL")
         return cell
     }
     
@@ -116,11 +115,17 @@ extension SavedRecipesVC: UICollectionViewDataSource {
 
 //MARK: - CollectionView Delegate
 
-extension SavedRecipesVC: UICollectionViewDelegate {
+extension SavedRecipesVC: UICollectionViewDelegateFlowLayout {
     
-   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       return CGSize(width: collectionView.frame.width, height: 300)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.bounds.width,
+               height: 500)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        3
+    }
     
 }
 
