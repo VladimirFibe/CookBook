@@ -34,7 +34,9 @@ class MainViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .rowLayout)
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(RecipeUIView.self, forCellWithReuseIdentifier: RecipeUIView.id)
         collectionView.register(RecentRecipeCell.self, forCellWithReuseIdentifier: RecentRecipeCell.id)
+        collectionView.register(ChefCell.self, forCellWithReuseIdentifier: ChefCell.id)
         return collectionView
     }()
     
@@ -43,7 +45,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .success10
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         let margin = view.layoutMarginsGuide
@@ -63,8 +64,7 @@ class MainViewController: UIViewController {
             let item = self.viewModel.rows[indexPath.section].items[indexPath.row]
             switch item {
             case let .trending(trend):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentRecipeCell.id, for: indexPath) as? RecentRecipeCell else { return UICollectionViewCell()}
-                cell.label.text = trend.title
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeUIView.id, for: indexPath) as? RecipeUIView else { return UICollectionViewCell()}
                 return cell
             case let .popular(pop):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentRecipeCell.id, for: indexPath) as? RecentRecipeCell else { return UICollectionViewCell()}
@@ -75,7 +75,7 @@ class MainViewController: UIViewController {
                 cell.label.text = rec.title
                 return cell
             case let .chef(che):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentRecipeCell.id, for: indexPath) as? RecentRecipeCell else { return UICollectionViewCell()}
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefCell.id, for: indexPath) as? ChefCell else { return UICollectionViewCell()}
                 cell.label.text = che
                 return cell
             }
