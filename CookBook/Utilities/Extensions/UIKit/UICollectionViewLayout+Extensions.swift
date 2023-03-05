@@ -11,10 +11,10 @@ extension UICollectionViewLayout {
                     heightDimension: .fractionalHeight(1)
                 )
                 let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
-                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 7, bottom: 0, trailing: 7)
+                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(0.8),
-                    heightDimension: .estimated(254)
+                    heightDimension: .absolute(254)
                 )
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
@@ -28,10 +28,10 @@ extension UICollectionViewLayout {
                     heightDimension: .fractionalHeight(1)
                 )
                 let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
-                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 7, bottom: 0, trailing: 7)
+                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
-                    widthDimension: .absolute(124),
-                    heightDimension: .estimated(190)
+                    widthDimension: .absolute(150),
+                    heightDimension: .absolute(231)
                 )
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
@@ -45,10 +45,10 @@ extension UICollectionViewLayout {
                     heightDimension: .fractionalHeight(1)
                 )
                 let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
-                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 7, bottom: 0, trailing: 7)
+                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(124),
-                    heightDimension: .estimated(190)
+                    heightDimension: .absolute(190)
                 )
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
@@ -65,7 +65,7 @@ extension UICollectionViewLayout {
                 bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(110),
-                    heightDimension: .estimated(136)
+                    heightDimension: .absolute(136)
                 )
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 

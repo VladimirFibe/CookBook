@@ -1,14 +1,9 @@
-//
-//  HalfRoundImageUIView.swift
-//  CookBook
-//
-//  Created by Василий Васильевич on 05.03.2023.
-//
-
 import UIKit
 
 class HalfRoundImageUIView: UICollectionViewCell {
 
+    static let id = "HalfRoundImageUIView"
+    
     let secondImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "BackgroundHalfRoundImageUIView")?.withTintColor(UIColor(named: "Neutral10")!))
         imageView.contentMode = .scaleAspectFit

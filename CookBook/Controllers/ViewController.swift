@@ -13,7 +13,6 @@ class ViewController: UITabBarController {
     
     private func configureUI() {
         let main = UINavigationController(rootViewController: MainViewController())
-        //let recipe = RecipeDetailViewController()
         let recipe = SavedRecipesVC()
         let favorite = FavoriteViewController()
         
