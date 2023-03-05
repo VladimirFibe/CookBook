@@ -1,14 +1,7 @@
-//
-//  RecipeUIView.swift
-//  CookBook
-//
-//  Created by Ildar Garifullin on 03/03/2023.
-//
-
 import UIKit
 
-class RecipeUIView: UIView {
-    
+class RecipeUIView: UICollectionViewCell {
+    static let id = "RecipeUIView"
     //MARK: - let/var
     
     var recipeInfoStackView = UIStackView()
@@ -28,7 +21,7 @@ class RecipeUIView: UIView {
         return label
     }()
     
-    private let moreButton: UIButton = {
+    private lazy var moreButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "Union")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)

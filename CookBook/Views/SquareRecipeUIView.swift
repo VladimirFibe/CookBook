@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-class SquareRecipe: UICollectionViewCell {
+class RecentRecipeCell: UICollectionViewCell {
 
+    static let id = "RecentRecipeCell"
+    
     let imageView = UIImageView(image: UIImage(named: "Food"))
     let label = UILabel()
     let authorLabel = UILabel()

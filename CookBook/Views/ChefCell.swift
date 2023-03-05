@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-class RoundImageUIView: UICollectionViewCell {
+class ChefCell: UICollectionViewCell {
 
+    static let id = "ChefCell"
+    
     let imageView = UIImageView(image: UIImage(named: "Food"))
     let label = UILabel()
     let authorLabel = UILabel()

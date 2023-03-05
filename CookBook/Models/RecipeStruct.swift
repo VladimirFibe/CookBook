@@ -1,13 +1,6 @@
-//
-//  Recipe.swift
-//  CookBook
-//
-//  Created by Aleksandr Kan on 01/03/23.
-//
-
 import Foundation
 
-struct RecipeStruct: Codable {
+struct RecipeStruct: Codable, Hashable {
     let id: Int
     let title: String
     let image: String
