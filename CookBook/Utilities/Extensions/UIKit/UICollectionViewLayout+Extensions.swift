@@ -62,7 +62,7 @@ extension UICollectionViewLayout {
                     heightDimension: .fractionalHeight(1)
                 )
                 let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
-                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 7, bottom: 0, trailing: 7)
+                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(110),
                     heightDimension: .estimated(136)

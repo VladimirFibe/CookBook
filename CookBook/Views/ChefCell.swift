@@ -1,25 +1,18 @@
-//
-//  RoundImageUIView.swift
-//  CookBook
-//
-//  Created by Василий Васильевич on 03.03.2023.
-//
-
 import SwiftUI
 
 class ChefCell: UICollectionViewCell {
-
     static let id = "ChefCell"
     
-    let imageView = UIImageView(image: UIImage(named: "Food"))
+    let imageView = RoundCornerImageView(image: UIImage(named: "Avatar"))
     let label = UILabel()
-    let authorLabel = UILabel()
 
-    lazy var stack = UIStackView(arrangedSubviews: [imageView, label, authorLabel])
+    lazy var stack = UIStackView(arrangedSubviews: [imageView, label])
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
@@ -27,33 +20,27 @@ class ChefCell: UICollectionViewCell {
 
     private func setupView() {
         contentView.addSubview(stack)
-
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 55
         imageView.layer.masksToBounds = true
-
-        label.text = "Ifly's Kitchen"
-        label.font = .poppins(12, weight: .semibold)
-        label.numberOfLines = 2
-        label.textColor = .label
+        label.font = .cooking(.small, weight: .bold)
+        label.numberOfLines = 1
+        label.textColor = .neutral100
+        label.textAlignment = .center
 
         stack.axis = .vertical
-        stack.alignment = .center
-        stack.spacing = 8
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
 
-        stack.addArrangedSubview(imageView)
-        stack.addArrangedSubview(label)
-        stack.addArrangedSubview(authorLabel)
-
         NSLayoutConstraint.activate([
-            stack.widthAnchor.constraint(equalToConstant: 124),
-            imageView.widthAnchor.constraint(equalToConstant: 110),
-            imageView.heightAnchor.constraint(equalToConstant: 110),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             stack.topAnchor.constraint(equalTo: contentView.topAnchor),
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+    }
+    func configure(with title: String) {
+        label.text = title
     }
 }

@@ -18,6 +18,7 @@
 		2711AB5D29AD016400E99592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2711AB5B29AD016400E99592 /* LaunchScreen.storyboard */; };
 		273E369729B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E369629B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift */; };
 		273E93EB29B05DC8009F648F /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */; };
+		27408B5629B439A30091EC00 /* RoundCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408B5529B439A30091EC00 /* RoundCornerImageView.swift */; };
 		2786848229AFA71E005D9FDB /* SquareRecipeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */; };
 		27CFAB1B29AE66C4001E5947 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFAB1A29AE66C4001E5947 /* LocalState.swift */; };
 		6E21DE9229AE4FD300386741 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E21DE9029AE4FD300386741 /* Poppins-Bold.ttf */; };
@@ -54,6 +55,7 @@
 		2711AB5E29AD016400E99592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		273E369629B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
 		273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		27408B5529B439A30091EC00 /* RoundCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerImageView.swift; sourceTree = "<group>"; };
 		2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareRecipeUIView.swift; sourceTree = "<group>"; };
 		27CFAB1A29AE66C4001E5947 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		6E21DE9029AE4FD300386741 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				6E2B0D7B29B2058D00DA0CC1 /* RecipeUIView.swift */,
 				0050CAF829B2130C00D90228 /* ChefCell.swift */,
 				00556D8B29B3D13D004F5420 /* HalfRoundImageUIView.swift */,
+				27408B5529B439A30091EC00 /* RoundCornerImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				273E369729B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				6E2B0D7E29B206F800DA0CC1 /* FavoriteViewController.swift in Sources */,
+				27408B5629B439A30091EC00 /* RoundCornerImageView.swift in Sources */,
 				D804B2C229B2A1850097B2C6 /* SavedRecipesVC.swift in Sources */,
 				0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */,
 				6EFE8D5B29AFCDE900BF1AC5 /* CreatorProfileUIView.swift in Sources */,

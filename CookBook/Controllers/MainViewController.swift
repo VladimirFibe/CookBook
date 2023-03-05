@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
                 return cell
             case let .chef(che):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefCell.id, for: indexPath) as? ChefCell else { return UICollectionViewCell()}
-                cell.label.text = che
+                cell.configure(with: che)
                 return cell
             }
         }
@@ -144,7 +144,7 @@ final class MainViewModel {
         MainRow(
             index: MainSection.chef.rawValue,
             title: "Popular creators",
-            items: ["one", "two", "three"].map { .chef($0)})
+            items: ["Ify’s Kitchen", "Kathryn Murphy", "Jerome Bell"].map { .chef($0)})
     ]
     
 }
