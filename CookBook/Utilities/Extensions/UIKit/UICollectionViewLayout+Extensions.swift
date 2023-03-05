@@ -19,6 +19,7 @@ extension UICollectionViewLayout {
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
+                section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 
                 return section
@@ -28,7 +29,6 @@ extension UICollectionViewLayout {
                     heightDimension: .fractionalHeight(1)
                 )
                 let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
-                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(150),
                     heightDimension: .absolute(231)
@@ -36,6 +36,7 @@ extension UICollectionViewLayout {
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
+                section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 
                 return section
@@ -53,6 +54,8 @@ extension UICollectionViewLayout {
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
+                section.interGroupSpacing = 10
+
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 
                 return section
@@ -70,6 +73,8 @@ extension UICollectionViewLayout {
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
+                section.interGroupSpacing = 10
+
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 
                 return section

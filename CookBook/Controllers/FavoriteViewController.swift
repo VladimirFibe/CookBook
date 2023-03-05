@@ -11,7 +11,7 @@ class FavoriteViewController: UIViewController {
     
     //MARK: - let/var
     
-    var recipeUIView = RecipeUIView()
+    var recipeUIView = PopularRecipeMainCell()
     
     //MARK: - life cycle funcs
     

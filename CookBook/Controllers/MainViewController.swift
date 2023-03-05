@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .rowLayout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(RecipeUIView.self, forCellWithReuseIdentifier: RecipeUIView.id)
-        collectionView.register(HalfRoundImageUIView.self, forCellWithReuseIdentifier: HalfRoundImageUIView.id)
+        collectionView.register(PopularRecipeMainCell.self, forCellWithReuseIdentifier: PopularRecipeMainCell.id)
         collectionView.register(RecentRecipeCell.self, forCellWithReuseIdentifier: RecentRecipeCell.id)
         collectionView.register(ChefCell.self, forCellWithReuseIdentifier: ChefCell.id)
         return collectionView
@@ -68,7 +68,7 @@ class MainViewController: UIViewController {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeUIView.id, for: indexPath) as? RecipeUIView else { return UICollectionViewCell()}
                 return cell
             case let .popular(pop):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HalfRoundImageUIView.id, for: indexPath) as? HalfRoundImageUIView else { return UICollectionViewCell()}
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularRecipeMainCell.id, for: indexPath) as? PopularRecipeMainCell else { return UICollectionViewCell()}
                 cell.nameLabel.text = pop.title
                 return cell
             case let .recent(rec):
