@@ -4,7 +4,7 @@ class HalfRoundImageUIView: UICollectionViewCell {
 
     static let id = "HalfRoundImageUIView"
     
-    let secondImageView: UIImageView = {
+    let backgroundHalImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "BackgroundHalfRoundImageUIView")?.withTintColor(UIColor(named: "Neutral10")!))
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -59,7 +59,7 @@ class HalfRoundImageUIView: UICollectionViewCell {
     }()
 
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [secondImageView, imageView, label])
+        let stack = UIStackView(arrangedSubviews: [backgroundHalImageView, imageView, label])
         stack.axis = .vertical
         stack.alignment = .center
         stack.spacing = 8
@@ -79,28 +79,28 @@ class HalfRoundImageUIView: UICollectionViewCell {
 
     private func setupView() {
         contentView.addSubview(stack)
-        secondImageView.addSubview(circleImageView)
+        backgroundHalImageView.addSubview(circleImageView)
         circleImageView.addSubview(unionImageView)
-        secondImageView.addSubview(minutesLabel)
-        secondImageView.addSubview(timeLabel)
+        backgroundHalImageView.addSubview(minutesLabel)
+        backgroundHalImageView.addSubview(timeLabel)
 
         NSLayoutConstraint.activate([
-            secondImageView.topAnchor.constraint(equalTo: imageView.centerYAnchor),
-            secondImageView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            secondImageView.widthAnchor.constraint(equalToConstant: 150),
-            secondImageView.heightAnchor.constraint(equalToConstant: 176),
+            backgroundHalImageView.topAnchor.constraint(equalTo: imageView.centerYAnchor),
+            backgroundHalImageView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            backgroundHalImageView.widthAnchor.constraint(equalToConstant: 150),
+            backgroundHalImageView.heightAnchor.constraint(equalToConstant: 176),
             imageView.widthAnchor.constraint(equalToConstant: 110),
             imageView.heightAnchor.constraint(equalToConstant: 110),
-            circleImageView.trailingAnchor.constraint(equalTo: secondImageView.trailingAnchor, constant: -11),
-            circleImageView.bottomAnchor.constraint(equalTo: secondImageView.bottomAnchor, constant: -11),
+            circleImageView.trailingAnchor.constraint(equalTo: backgroundHalImageView.trailingAnchor, constant: -11),
+            circleImageView.bottomAnchor.constraint(equalTo: backgroundHalImageView.bottomAnchor, constant: -11),
             unionImageView.centerXAnchor.constraint(equalTo: circleImageView.centerXAnchor),
             unionImageView.centerYAnchor.constraint(equalTo: circleImageView.centerYAnchor),
             unionImageView.widthAnchor.constraint(equalToConstant: 10.96),
             unionImageView.heightAnchor.constraint(equalToConstant: 13.67),
-            timeLabel.leadingAnchor.constraint(equalTo: secondImageView.leadingAnchor, constant: 12),
+            timeLabel.leadingAnchor.constraint(equalTo: backgroundHalImageView.leadingAnchor, constant: 12),
             timeLabel.bottomAnchor.constraint(equalTo: minutesLabel.topAnchor, constant: -4),
-            minutesLabel.leadingAnchor.constraint(equalTo: secondImageView.leadingAnchor, constant: 12),
-            minutesLabel.bottomAnchor.constraint(equalTo: secondImageView.bottomAnchor, constant: -11)
+            minutesLabel.leadingAnchor.constraint(equalTo: backgroundHalImageView.leadingAnchor, constant: 12),
+            minutesLabel.bottomAnchor.constraint(equalTo: backgroundHalImageView.bottomAnchor, constant: -11)
         ])
     }
 }
