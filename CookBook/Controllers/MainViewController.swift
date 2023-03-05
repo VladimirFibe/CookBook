@@ -69,7 +69,7 @@ class MainViewController: UIViewController {
                 return cell
             case let .popular(pop):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HalfRoundImageUIView.id, for: indexPath) as? HalfRoundImageUIView else { return UICollectionViewCell()}
-                cell.label.text = pop.title
+                cell.nameLabel.text = pop.title
                 return cell
             case let .recent(rec):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentRecipeCell.id, for: indexPath) as? RecentRecipeCell else { return UICollectionViewCell()}
