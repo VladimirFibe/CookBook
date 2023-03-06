@@ -12,4 +12,3 @@ struct RecipeStruct: Codable, Hashable {
 struct FavoritesRecipe: Codable {
     var results: [RecipeStruct]
 }
-

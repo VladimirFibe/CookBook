@@ -11,6 +11,8 @@
 		00556D8C29B3D13D004F5420 /* PopularRecipeMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00556D8B29B3D13D004F5420 /* PopularRecipeMainCell.swift */; };
 		0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */; };
 		2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700EC9329AF836E00DC3F3A /* MainViewController.swift */; };
+		270DAF8029B580D20019D472 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DAF7F29B580D20019D472 /* CustomTabBar.swift */; };
+		270DAF8329B5A4520019D472 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 270DAF8229B5A4520019D472 /* Kingfisher */; };
 		2711AB5129AD016300E99592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5029AD016300E99592 /* AppDelegate.swift */; };
 		2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5229AD016300E99592 /* SceneDelegate.swift */; };
 		2711AB5529AD016300E99592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5429AD016300E99592 /* ViewController.swift */; };
@@ -46,6 +48,7 @@
 		00556D8B29B3D13D004F5420 /* PopularRecipeMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRecipeMainCell.swift; sourceTree = "<group>"; };
 		0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2700EC9329AF836E00DC3F3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		270DAF7F29B580D20019D472 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2711AB4D29AD016300E99592 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2711AB5029AD016300E99592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2711AB5229AD016300E99592 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,12 +86,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270DAF8329B5A4520019D472 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270DAF7E29B580730019D472 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2711AB5429AD016300E99592 /* ViewController.swift */,
+				270DAF7F29B580D20019D472 /* CustomTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		2711AB4429AD016300E99592 = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +181,7 @@
 		27CFAB1F29AE6AA1001E5947 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2711AB5429AD016300E99592 /* ViewController.swift */,
+				270DAF7E29B580730019D472 /* TabBar */,
 				0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */,
 				2700EC9329AF836E00DC3F3A /* MainViewController.swift */,
 				6EFE8D5429AF916400BF1AC5 /* RecipeDetailViewController.swift */,
@@ -249,6 +262,9 @@
 			dependencies = (
 			);
 			name = CookBook;
+			packageProductDependencies = (
+				270DAF8229B5A4520019D472 /* Kingfisher */,
+			);
 			productName = CookBook;
 			productReference = 2711AB4D29AD016300E99592 /* CookBook.app */;
 			productType = "com.apple.product-type.application";
@@ -277,6 +293,9 @@
 				Base,
 			);
 			mainGroup = 2711AB4429AD016300E99592;
+			packageReferences = (
+				270DAF8129B5A4520019D472 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 2711AB4E29AD016300E99592 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -322,6 +341,7 @@
 				D86FB07C29AF688800326403 /* NetworkManager.swift in Sources */,
 				6E21DE9529AE52C400386741 /* UIFont + Extensions.swift in Sources */,
 				D86FB07E29AF907700326403 /* RecipeStruct.swift in Sources */,
+				270DAF8029B580D20019D472 /* CustomTabBar.swift in Sources */,
 				273E369729B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				6E2B0D7E29B206F800DA0CC1 /* FavoriteViewController.swift in Sources */,
@@ -546,6 +566,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		270DAF8129B5A4520019D472 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		270DAF8229B5A4520019D472 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 270DAF8129B5A4520019D472 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2711AB4529AD016300E99592 /* Project object */;
 }

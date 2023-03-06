@@ -57,4 +57,9 @@ class RecentRecipeCell: UICollectionViewCell {
             stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
+    
+    func configure(with recipe: RecipeStruct) {
+        imageView.kf.setImage(with: URL(string: recipe.image))
+        label.text = recipe.title
+    }
 }

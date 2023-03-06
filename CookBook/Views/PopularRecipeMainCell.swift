@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class PopularRecipeMainCell: UICollectionViewCell {
     static let id = "PopularRecipeMainCell"
@@ -94,5 +95,10 @@ class PopularRecipeMainCell: UICollectionViewCell {
             bookMarkImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             bookMarkImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -11)
         ])
+    }
+    
+    func configure(with recipe: RecipeStruct) {
+        foodImage.kf.setImage(with: URL(string: recipe.image))
+        nameLabel.text = recipe.title
     }
 }

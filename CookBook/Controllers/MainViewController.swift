@@ -66,14 +66,15 @@ class MainViewController: UIViewController {
             switch item {
             case let .trending(trend):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeUIView.id, for: indexPath) as? RecipeUIView else { return UICollectionViewCell()}
+                print(trend)
                 return cell
             case let .popular(pop):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularRecipeMainCell.id, for: indexPath) as? PopularRecipeMainCell else { return UICollectionViewCell()}
-                cell.nameLabel.text = pop.title
+                cell.configure(with: pop)
                 return cell
             case let .recent(rec):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentRecipeCell.id, for: indexPath) as? RecentRecipeCell else { return UICollectionViewCell()}
-                cell.label.text = rec.title
+                cell.configure(with: rec)
                 return cell
             case let .chef(che):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefCell.id, for: indexPath) as? ChefCell else { return UICollectionViewCell()}
@@ -122,25 +123,52 @@ final class MainViewModel {
             index: MainSection.trending.rawValue,
             title: "Trending now 🔥",
             items: [
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "How to Make OREO Turkeys for Thanksgiving",
+                             image: "https://spoonacular.com/recipeImages/715449-312x231.jpg",
+                             imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "The Best Chili",
+                             image: "https://spoonacular.com/recipeImages/715424-312x231.jpg",
+                             imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "World’s Greatest Lasagna Roll Ups",
+                             image: "https://spoonacular.com/recipeImages/715560-312x231.jpg",
+                             imageType: "jpg"),
             ].map { .trending($0)}),
         MainRow(
             index: MainSection.popular.rawValue,
             title: "Popular category ",
             items: [
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "Sausage & Pepperoni Stromboli",
+                             image: "https://spoonacular.com/recipeImages/776505-312x231.jpg",
+                             imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "Cannoli Ice Cream w. Pistachios & Dark Chocolate",
+                             image: "https://spoonacular.com/recipeImages/716410-312x231.jpg",
+                             imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "Turkey Pot Pie",
+                             image: "https://spoonacular.com/recipeImages/715467-312x231.jpg",
+                             imageType: "jpg"),
             ].map { .popular($0)}),
         MainRow(
             index: MainSection.recent.rawValue,
             title: "Recent recipe",
             items: [
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
-                RecipeStruct(id: UUID().hashValue, title: "The Best Chili", image: "https://spoonacular.com/recipeImages/715424-312x231.jpg", imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "Slow Cooker Spicy Hot Wings",
+                             image: "https://spoonacular.com/recipeImages/715419-312x231.jpg",
+                             imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "Crockpot \"Refried\" Beans",
+                             image: "https://spoonacular.com/recipeImages/775585-312x231.jpg",
+                             imageType: "jpg"),
+                RecipeStruct(id: UUID().hashValue,
+                             title: "Grilled Zucchini with Goat Cheese and Balsamic-Honey Syrup",
+                             image: "https://spoonacular.com/recipeImages/716423-312x231.jpg",
+                             imageType: "jpg"),
             ].map { .recent($0)}),
         MainRow(
             index: MainSection.chef.rawValue,

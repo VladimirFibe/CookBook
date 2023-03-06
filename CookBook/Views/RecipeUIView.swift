@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class RecipeUIView: UICollectionViewCell {
     static let id = "RecipeUIView"
@@ -76,7 +77,7 @@ class RecipeUIView: UICollectionViewCell {
     }
     
     //MARK: - public
-    
+
 }
 
 //MARK: - extensions setupViews
