@@ -5,9 +5,7 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-//        DispatchQueue.main.async {
-//                    let manager = DataManager().getResults()
-//                }
+        RecipeHTTPClient.shared.getProduct()
     }
     
     private func configureUI() {

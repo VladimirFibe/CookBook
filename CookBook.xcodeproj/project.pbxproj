@@ -18,6 +18,8 @@
 		2711AB5529AD016300E99592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711AB5429AD016300E99592 /* ViewController.swift */; };
 		2711AB5A29AD016400E99592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2711AB5929AD016400E99592 /* Assets.xcassets */; };
 		2711AB5D29AD016400E99592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2711AB5B29AD016400E99592 /* LaunchScreen.storyboard */; };
+		2726A4C829B60520002AA601 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2726A4C729B60520002AA601 /* Recipe.swift */; };
+		2726A4CA29B60681002AA601 /* RecipeHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2726A4C929B60681002AA601 /* RecipeHTTPClient.swift */; };
 		273E369729B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E369629B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift */; };
 		273E93EB29B05DC8009F648F /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */; };
 		27408B5629B439A30091EC00 /* RoundCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408B5529B439A30091EC00 /* RoundCornerImageView.swift */; };
@@ -56,6 +58,8 @@
 		2711AB5929AD016400E99592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2711AB5C29AD016400E99592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2711AB5E29AD016400E99592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2726A4C729B60520002AA601 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		2726A4C929B60681002AA601 /* RecipeHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHTTPClient.swift; sourceTree = "<group>"; };
 		273E369629B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
 		273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		27408B5529B439A30091EC00 /* RoundCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerImageView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			children = (
 				D86FB07B29AF688800326403 /* NetworkManager.swift */,
 				D86FB08029AF93A000326403 /* DataManager.swift */,
+				2726A4C929B60681002AA601 /* RecipeHTTPClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				D86FB07D29AF907700326403 /* RecipeStruct.swift */,
+				2726A4C729B60520002AA601 /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,9 +351,11 @@
 				273E369729B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				6E2B0D7E29B206F800DA0CC1 /* FavoriteViewController.swift in Sources */,
+				2726A4CA29B60681002AA601 /* RecipeHTTPClient.swift in Sources */,
 				27408B5629B439A30091EC00 /* RoundCornerImageView.swift in Sources */,
 				D804B2C229B2A1850097B2C6 /* SavedRecipesVC.swift in Sources */,
 				0096E45C29ADE18400247EC6 /* StartScreenViewController.swift in Sources */,
+				2726A4C829B60520002AA601 /* Recipe.swift in Sources */,
 				6EFE8D5B29AFCDE900BF1AC5 /* CreatorProfileUIView.swift in Sources */,
 				6EFE8D5529AF916400BF1AC5 /* RecipeDetailViewController.swift in Sources */,
 				2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */,
