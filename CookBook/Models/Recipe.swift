@@ -71,7 +71,7 @@ struct Length: Codable, Hashable {
     let unit: Unit
 }
 
-enum Unit: String, Codable, Hashable {
+enum Unit: String, Codable {
     case celsius = "Celsius"
     case fahrenheit = "Fahrenheit"
     case minutes = "minutes"
@@ -90,7 +90,7 @@ struct ExtendedIngredient: Codable, Hashable {
     let measures: Measures
 }
 
-enum Consistency: String, Codable, Hashable {
+enum Consistency: String, Codable {
     case liquid = "LIQUID"
     case solid = "SOLID"
 }
