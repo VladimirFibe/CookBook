@@ -24,6 +24,8 @@
 		273E93EB29B05DC8009F648F /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */; };
 		27408B5629B439A30091EC00 /* RoundCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408B5529B439A30091EC00 /* RoundCornerImageView.swift */; };
 		2786848229AFA71E005D9FDB /* SquareRecipeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */; };
+		27B97EA129B7F9D700626152 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B97EA029B7F9D700626152 /* Bundle+Extensions.swift */; };
+		27B97EA329B7FA2100626152 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 27B97EA229B7FA2100626152 /* Recipe.json */; };
 		27CFAB1B29AE66C4001E5947 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFAB1A29AE66C4001E5947 /* LocalState.swift */; };
 		6E21DE9229AE4FD300386741 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E21DE9029AE4FD300386741 /* Poppins-Bold.ttf */; };
 		6E21DE9329AE4FD300386741 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E21DE9129AE4FD300386741 /* Poppins-Regular.ttf */; };
@@ -64,6 +66,8 @@
 		273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		27408B5529B439A30091EC00 /* RoundCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerImageView.swift; sourceTree = "<group>"; };
 		2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareRecipeUIView.swift; sourceTree = "<group>"; };
+		27B97EA029B7F9D700626152 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		27B97EA229B7FA2100626152 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
 		27CFAB1A29AE66C4001E5947 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		6E21DE9029AE4FD300386741 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		6E21DE9129AE4FD300386741 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				2711AB5929AD016400E99592 /* Assets.xcassets */,
 				2711AB5B29AD016400E99592 /* LaunchScreen.storyboard */,
 				2711AB5E29AD016400E99592 /* Info.plist */,
+				27B97EA229B7FA2100626152 /* Recipe.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */,
 				6E21DE9B29AE5C9D00386741 /* UIStackView + Extensions.swift */,
 				273E369629B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift */,
+				27B97EA029B7F9D700626152 /* Bundle+Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -319,6 +325,7 @@
 				6E21DE9929AE5A2300386741 /* Poppins-SemiBold.ttf in Resources */,
 				2711AB5D29AD016400E99592 /* LaunchScreen.storyboard in Resources */,
 				6E21DE9229AE4FD300386741 /* Poppins-Bold.ttf in Resources */,
+				27B97EA329B7FA2100626152 /* Recipe.json in Resources */,
 				2711AB5A29AD016400E99592 /* Assets.xcassets in Resources */,
 				6E21DE9329AE4FD300386741 /* Poppins-Regular.ttf in Resources */,
 			);
@@ -347,6 +354,7 @@
 				D86FB07C29AF688800326403 /* NetworkManager.swift in Sources */,
 				6E21DE9529AE52C400386741 /* UIFont + Extensions.swift in Sources */,
 				D86FB07E29AF907700326403 /* RecipeStruct.swift in Sources */,
+				27B97EA129B7F9D700626152 /* Bundle+Extensions.swift in Sources */,
 				270DAF8029B580D20019D472 /* CustomTabBar.swift in Sources */,
 				273E369729B0E0EB0020A6A5 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,

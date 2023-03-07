@@ -97,7 +97,7 @@ class PopularRecipeMainCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with recipe: RecipeStruct) {
+    func configure(with recipe: Recipe) {
         foodImage.kf.setImage(with: URL(string: recipe.image))
         nameLabel.text = recipe.title
     }

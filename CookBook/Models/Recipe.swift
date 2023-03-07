@@ -32,14 +32,12 @@ struct Recipe: Codable, Hashable {
     let cuisines, dishTypes, diets, occasions: [String]
     let instructions: String
     let analyzedInstructions: [AnalyzedInstruction]
-    let originalID: JSONNull?
     let spoonacularSourceURL: String
 
     enum CodingKeys: String, CodingKey {
         case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, lowFodmap, weightWatcherSmartPoints, gaps, preparationMinutes, cookingMinutes, aggregateLikes, healthScore, creditsText, license, sourceName, pricePerServing, extendedIngredients, id, title, readyInMinutes, servings
         case sourceURL = "sourceUrl"
         case image, imageType, summary, cuisines, dishTypes, diets, occasions, instructions, analyzedInstructions
-        case originalID = "originalId"
         case spoonacularSourceURL = "spoonacularSourceUrl"
     }
 }
@@ -62,7 +60,6 @@ struct Step: Codable, Hashable {
 struct Ent: Codable, Hashable {
     let id: Int
     let name, localizedName, image: String
-    let temperature: Length?
 }
 
 // MARK: - Length
@@ -72,18 +69,18 @@ struct Length: Codable, Hashable {
 }
 
 enum Unit: String, Codable {
-    case celsius = "Celsius"
-    case fahrenheit = "Fahrenheit"
     case minutes = "minutes"
 }
 
 // MARK: - ExtendedIngredient
 struct ExtendedIngredient: Codable, Hashable {
     let id: Int
-    let aisle: String?
-    let image: String
+    let aisle: String
+    let image: String?
     let consistency: Consistency
-    let name, nameClean, original, originalName: String
+    let name: String
+    let nameClean: String?
+    let original, originalName: String
     let amount: Double
     let unit: String
     let meta: [String]
@@ -104,31 +101,4 @@ struct Measures: Codable, Hashable {
 struct Metric: Codable, Hashable {
     let amount: Double
     let unitShort, unitLong: String
-}
-
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
 }

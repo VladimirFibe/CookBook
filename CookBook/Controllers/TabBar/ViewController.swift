@@ -5,7 +5,6 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        RecipeHTTPClient.shared.getProduct()
     }
     
     private func configureUI() {
