@@ -66,7 +66,6 @@ class MainViewController: UIViewController {
             switch item {
             case let .trending(trend):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeUIView.id, for: indexPath) as? RecipeUIView else { return UICollectionViewCell()}
-                print(trend)
                 return cell
             case let .popular(pop):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularRecipeMainCell.id, for: indexPath) as? PopularRecipeMainCell else { return UICollectionViewCell()}
@@ -126,7 +125,7 @@ final class MainViewModel {
         MainRow(
             index: MainSection.popular.rawValue,
             title: "Popular category ",
-            items: RecipeHTTPClient.shared.getRecipes().map { .popular($0)}),
+            items: RecipeHTTPClient.shared.getRecipes().reversed().map { .popular($0)}),
         MainRow(
             index: MainSection.recent.rawValue,
             title: "Recent recipe",

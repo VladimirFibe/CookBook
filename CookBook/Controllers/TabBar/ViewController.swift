@@ -5,6 +5,16 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+//        Task {
+//            do {
+//                let recipes = try await RecipeHTTPClient.shared.getRandomRecipes(number: 10)
+//                recipes.forEach {
+//                    print($0.title)
+//                }
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
     }
     
     private func configureUI() {

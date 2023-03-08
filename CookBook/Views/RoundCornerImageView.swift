@@ -14,7 +14,6 @@ class RoundCornerImageView: UIImageView {
     private var radius: CGFloat?
     func setCorner(radius: CGFloat?) {
         let height = min(frame.width, frame.height)
-        print(#function, height)
         if let radius = radius {
             self.radius = radius
             layer.cornerRadius = radius
