@@ -28,5 +28,19 @@ class DataManager {
         }
     }
     
-    
+    func getRecipe() {
+        networkManager.getRecipe { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let data):
+                do {
+                    let task = try JSONDecoder().decode(Recipe.self, from: data)
+                    print("Recipe: \(task)")
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
 }
