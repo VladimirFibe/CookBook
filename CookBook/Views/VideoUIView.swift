@@ -14,7 +14,7 @@ class VideoUIView: UIView {
     private let fishImage: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "Fish")
+        imageView.image = UIImage(named: "\(RecipeHTTPClient.shared.getRecipes()[0].image)")
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -81,7 +81,6 @@ class CreatorProfileUIView: UIView {
         return button
     }()
     
-    
     //MARK: - life cycle funcs
     
     override init(frame: CGRect) {
@@ -98,6 +97,8 @@ class CreatorProfileUIView: UIView {
     //MARK: - flow funcs
     
     @objc private func followButtonTapped() {
+        print("\(RecipeHTTPClient.shared.getRecipes()[0])")
+        
         print("followButtonTapped")
     }
     

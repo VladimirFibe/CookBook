@@ -2,8 +2,10 @@ import UIKit
 import Kingfisher
 
 class RecipeUIView: UICollectionViewCell {
-    static let id = "RecipeUIView"
+    
     //MARK: - let/var
+    
+    static let id = "RecipeUIView"
     
     var recipeInfoStackView = UIStackView()
     
@@ -77,7 +79,7 @@ class RecipeUIView: UICollectionViewCell {
     }
     
     //MARK: - public
-
+    
 }
 
 //MARK: - extensions setupViews

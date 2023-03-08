@@ -22,7 +22,7 @@ class RecipeDetailViewController: UIViewController {
     
     private let recipeLabel: UILabel = {
         let label = UILabel()
-        label.text = "How to make Tasty Fish (point & Kill)"
+        label.text = "\(RecipeHTTPClient.shared.getRecipes()[0].title)"
         label.textColor = .neutral100
         label.font = .poppinsBold24()
         label.numberOfLines = 0

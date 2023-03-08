@@ -32,13 +32,13 @@ struct Recipe: Codable, Hashable {
     let cuisines, dishTypes, diets, occasions: [String]
     let instructions: String
     let analyzedInstructions: [AnalyzedInstruction]
-    let spoonacularSourceURL: String
+//    let spoonacularSourceURL: String
 
     enum CodingKeys: String, CodingKey {
         case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, lowFodmap, weightWatcherSmartPoints, gaps, preparationMinutes, cookingMinutes, aggregateLikes, healthScore, creditsText, license, sourceName, pricePerServing, extendedIngredients, id, title, readyInMinutes, servings
         case sourceURL = "sourceUrl"
         case image, imageType, summary, cuisines, dishTypes, diets, occasions, instructions, analyzedInstructions
-        case spoonacularSourceURL = "spoonacularSourceUrl"
+//        case spoonacularSourceURL = "spoonacularSourceUrl"
     }
 }
 
