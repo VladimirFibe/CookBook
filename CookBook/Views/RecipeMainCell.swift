@@ -1,9 +1,11 @@
 import UIKit
 import Kingfisher
 
-class RecipeUIView: UICollectionViewCell {
-    static let id = "RecipeUIView"
+class RecipeMainCell: UICollectionViewCell {
+    
     //MARK: - let/var
+    
+    static let id = "RecipeMainCell"
     
     var recipeInfoStackView = UIStackView()
     
@@ -56,7 +58,6 @@ class RecipeUIView: UICollectionViewCell {
         return label
     }()
     
-    
     //MARK: - life cycle funcs
     
     override init(frame: CGRect) {
@@ -77,12 +78,16 @@ class RecipeUIView: UICollectionViewCell {
     }
     
     //MARK: - public
-
+    
+    func configure(with recipe: Recipe) {
+        fullVideoUIView.backgroundImage.kf.setImage(with: URL(string: recipe.image))
+        dishNameLabel.text = recipe.title
+    }
 }
 
 //MARK: - extensions setupViews
 
-extension RecipeUIView {
+extension RecipeMainCell {
     
     private func setupViews() {
         
@@ -121,7 +126,7 @@ extension RecipeUIView {
 
 //MARK: - extensions setConstraints
 
-extension RecipeUIView {
+extension RecipeMainCell {
     
     private func setConstraints() {
         
@@ -150,6 +155,5 @@ extension RecipeUIView {
             recipeInfoStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             recipeInfoStackView.heightAnchor.constraint(equalToConstant: 254)
         ])
-        
     }
 }

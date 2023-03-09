@@ -22,11 +22,9 @@ class DataManager {
                     print("TEST")
                     print(array)
                 } catch let error as NSError {
-                    print(error.localizedDescription)
+                    print(error)
                 }
             }
         }
     }
-    
-    
 }

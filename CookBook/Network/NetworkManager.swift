@@ -80,7 +80,7 @@ class NetworkManager {
                 } catch let error {
                     completion(.failure(error))
                 }
-            }
+            }            
         }.resume()
     }
 }

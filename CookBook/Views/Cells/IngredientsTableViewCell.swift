@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class IngredientsTableViewCell: UITableViewCell {
+    
+    let recipe = RecipeHTTPClient.shared.getRecipes()[4]
     
     private let backgroundCell: UIView = {
         let view = UIView()
@@ -60,6 +63,12 @@ class IngredientsTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with recipe: Recipe) {
+        ingredientImageView.kf.setImage(with: URL(string: recipe.extendedIngredients[1].image ?? "No image"))
+        ingredientLabel.text = recipe.extendedIngredients[1].name
+        weightIngredientLabel.text = String(format: "%0.f", recipe.extendedIngredients[1].measures.metric.amount) + " " + String(recipe.extendedIngredients[1].measures.metric.unitShort)
     }
 }
 
