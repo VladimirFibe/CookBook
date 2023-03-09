@@ -38,7 +38,7 @@ class NetworkManager {
         }.resume()
     }
     
-    
+    //Получение рецептов по категории стран
     func getCuisineCategories(for country: Countries, completion: @escaping (Result<ResipesResult, Error>) -> Void) {
         //guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?cuisine=/(country.rowValue)") else { return }
         guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?cuisine=Korean") else { return }
@@ -64,10 +64,23 @@ class NetworkManager {
         
     }
     
-    
-    
-    //Работа с сетью для экрана с списком рецептов одной категории
-    
-    
-    
+    //Получение информации о рецепте по id
+    func getInformationRecipe(for id: Int, completion: @escaping (Result<RecipeStruct, Error>) -> Void) {
+        //guard let url = URL(string: "https://api.spoonacular.com/recipes//(id)/information") else { return }
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/665379/information") else { return }
+        var request = URLRequest(url: url, timeoutInterval: .infinity)
+        request.addValue(ApiConstants.apiKey, forHTTPHeaderField: "x-api-key")
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error { completion(.failure(error)) }
+            if let dataResult = data {
+                do {
+                    let recipes = try JSONDecoder().decode(RecipeStruct.self, from: dataResult)
+                    completion(.success(recipes))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }.resume()
+    }
 }
