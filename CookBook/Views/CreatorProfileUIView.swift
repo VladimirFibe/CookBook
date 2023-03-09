@@ -97,6 +97,8 @@ class CreatorProfileUIView: UIView {
     //MARK: - flow funcs
     
     @objc private func followButtonTapped() {
+        print(RecipeHTTPClient.shared.getRecipes()[4])
+        
         print("followButtonTapped")
     }
     

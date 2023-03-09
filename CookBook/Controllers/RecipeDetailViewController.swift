@@ -12,6 +12,8 @@ class RecipeDetailViewController: UIViewController {
     
     //MARK: - let/var
     
+    let recipe = RecipeHTTPClient.shared.getRecipes()[4]
+    
     var videoCreatorInfoStackView = UIStackView()
     var ingredientsStackView = UIStackView()
     
@@ -23,7 +25,7 @@ class RecipeDetailViewController: UIViewController {
     
     private let recipeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Chicken Sausage, White Bean and Cabbage Soup"
+        label.text = "Chicken Sausage"
         label.textColor = .neutral100
         label.font = .poppinsBold24()
         label.numberOfLines = 0
@@ -77,6 +79,8 @@ class RecipeDetailViewController: UIViewController {
         setDelegate()
         
         recipeDetailTableView.register(IngredientsTableViewCell.self, forCellReuseIdentifier: idRecipeDetailTableViewCell)
+        
+        configure(with: recipe)
     }
     
     //MARK: - flow funcs
@@ -89,8 +93,9 @@ class RecipeDetailViewController: UIViewController {
     //MARK: - public
     
     func configure(with recipe: Recipe) {
-        fullVideoUIView.backgroundImage.kf.setImage(with: URL(string: recipe.image))
-        dishNameLabel.text = recipe.title
+        videoUIView.backgroundImage.kf.setImage(with: URL(string: recipe.image))
+        recipeLabel.text = recipe.title
+        itemsLabel.text = String(recipe.extendedIngredients.count) + " items"
     }
 }
 
@@ -99,7 +104,7 @@ class RecipeDetailViewController: UIViewController {
 extension RecipeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        recipe.extendedIngredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,6 +112,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
             withIdentifier: idRecipeDetailTableViewCell,
             for: indexPath
         ) as! IngredientsTableViewCell
+        cell.configure(with: recipe)
         
         return cell
     }

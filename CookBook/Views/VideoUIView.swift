@@ -11,7 +11,7 @@ class VideoUIView: UIView {
     
     //MARK: - let/var
     
-    private let backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: "Fish")
