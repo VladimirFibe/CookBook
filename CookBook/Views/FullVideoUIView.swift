@@ -13,7 +13,7 @@ class FullVideoUIView: UIView {
     
     var reviewsStackView = UIStackView()
     
-    private let testImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: "TestImageSharwama")
@@ -117,7 +117,7 @@ class FullVideoUIView: UIView {
     }
     
     //MARK: - public
-    
+
 }
 
 //MARK: - extensions setupViews
@@ -126,10 +126,10 @@ extension FullVideoUIView {
     
     private func setupViews() {
         
-        addSubview(testImage)
+        addSubview(backgroundImage)
         
-        testImage.addSubview(playButton)
-        testImage.addSubview(reviewsUIView)
+        backgroundImage.addSubview(playButton)
+        backgroundImage.addSubview(reviewsUIView)
         
         reviewsStackView = UIStackView(
             arrangedSubviews: [
@@ -141,9 +141,9 @@ extension FullVideoUIView {
         )
         reviewsUIView.addSubview(reviewsStackView)
         
-        testImage.addSubview(bookmarkButton)
+        backgroundImage.addSubview(bookmarkButton)
         
-        testImage.addSubview(timesUIView)
+        backgroundImage.addSubview(timesUIView)
         timesUIView.addSubview(timesLabel)
     }
 }
@@ -155,22 +155,22 @@ extension FullVideoUIView {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            testImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            testImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            testImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            testImage.heightAnchor.constraint(equalToConstant: 180)
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backgroundImage.heightAnchor.constraint(equalToConstant: 180)
         ])
         
         NSLayoutConstraint.activate([
-            playButton.centerXAnchor.constraint(equalTo: testImage.centerXAnchor),
-            playButton.centerYAnchor.constraint(equalTo: testImage.centerYAnchor),
+            playButton.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor),
+            playButton.centerYAnchor.constraint(equalTo: backgroundImage.centerYAnchor),
             playButton.widthAnchor.constraint(equalToConstant: 48),
             playButton.heightAnchor.constraint(equalToConstant: 48)
         ])
         
         NSLayoutConstraint.activate([
-            reviewsUIView.leadingAnchor.constraint(equalTo: testImage.leadingAnchor, constant: 8),
-            reviewsUIView.topAnchor.constraint(equalTo: testImage.topAnchor,constant: 8),
+            reviewsUIView.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 8),
+            reviewsUIView.topAnchor.constraint(equalTo: backgroundImage.topAnchor,constant: 8),
             reviewsUIView.widthAnchor.constraint(equalToConstant: 58),
             reviewsUIView.heightAnchor.constraint(equalToConstant: 27.6)
         ])
@@ -186,15 +186,15 @@ extension FullVideoUIView {
         ])
         
         NSLayoutConstraint.activate([
-            bookmarkButton.trailingAnchor.constraint(equalTo: testImage.trailingAnchor, constant: -8),
-            bookmarkButton.topAnchor.constraint(equalTo: testImage.topAnchor,constant: 8),
+            bookmarkButton.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -8),
+            bookmarkButton.topAnchor.constraint(equalTo: backgroundImage.topAnchor,constant: 8),
             bookmarkButton.widthAnchor.constraint(equalToConstant: 32),
             bookmarkButton.heightAnchor.constraint(equalToConstant: 32)
         ])
         
         NSLayoutConstraint.activate([
-            timesUIView.trailingAnchor.constraint(equalTo: testImage.trailingAnchor, constant: -8),
-            timesUIView.bottomAnchor.constraint(equalTo: testImage.bottomAnchor, constant: -8),
+            timesUIView.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -8),
+            timesUIView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -8),
             timesUIView.widthAnchor.constraint(equalToConstant: 41),
             timesUIView.heightAnchor.constraint(equalToConstant: 25)
         ])

@@ -18,15 +18,13 @@ class DataManager {
                 print(error.localizedDescription)
             case .success(let data):
                 do {
-                    let array = try JSONDecoder().decode(FavoritesRecipe.self, from: data)
+                    let array = try JSONDecoder().decode(RecipeResponse.self, from: data)
                     print("TEST")
                     print(array)
                 } catch let error as NSError {
-                    print(error.localizedDescription)
+                    print(error)
                 }
             }
         }
     }
-    
-    
 }

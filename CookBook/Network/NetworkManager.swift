@@ -8,10 +8,10 @@ class NetworkManager {
         var request = URLRequest(url: url, timeoutInterval: .infinity)
         request.addValue(token, forHTTPHeaderField: "x-api-key")
         request.httpMethod = "GET"
-             URLSession.shared.dataTask(with: request) { data, response, error in
-                 if let error = error { completion(.failure(error)) }
-                 if let dataResult = data { completion(.success(dataResult)) }
-                 
-            }.resume()
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error { completion(.failure(error)) }
+            if let dataResult = data { completion(.success(dataResult)) }
+            
+        }.resume()
     }
 }

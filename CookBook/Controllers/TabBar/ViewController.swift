@@ -33,7 +33,7 @@ class ViewController: UITabBarController {
                                            selectedImage: UIImage(named: "BookmarkActive")?.withRenderingMode(.alwaysOriginal))
         bookmark.view.backgroundColor = .systemBackground
         
-        let notification = UIViewController()
+        let notification = RecipeDetailViewController()
         notification.tabBarItem = UITabBarItem(title: nil,
                                                image: UIImage(named: "NotificationInactive"),
                                                selectedImage: UIImage(named: "NotificationActive")?.withRenderingMode(.alwaysOriginal))
