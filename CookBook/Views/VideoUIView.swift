@@ -11,7 +11,7 @@ class VideoUIView: UIView {
     
     //MARK: - let/var
     
-    private let fishImage: UIImageView = {
+    private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: "Fish")
@@ -60,8 +60,8 @@ class VideoUIView: UIView {
 extension VideoUIView {
     
     private func setupViews() {
-        addSubview(fishImage)
-        fishImage.addSubview(playButton)
+        addSubview(backgroundImage)
+        backgroundImage.addSubview(playButton)
     }
 }
 
@@ -72,15 +72,15 @@ extension VideoUIView {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            fishImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            fishImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            fishImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            fishImage.heightAnchor.constraint(equalToConstant: 223)
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backgroundImage.heightAnchor.constraint(equalToConstant: 223)
         ])
         
         NSLayoutConstraint.activate([
-            playButton.centerXAnchor.constraint(equalTo: fishImage.centerXAnchor),
-            playButton.centerYAnchor.constraint(equalTo: fishImage.centerYAnchor),
+            playButton.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor),
+            playButton.centerYAnchor.constraint(equalTo: backgroundImage.centerYAnchor),
             playButton.widthAnchor.constraint(equalToConstant: 48),
             playButton.heightAnchor.constraint(equalToConstant: 48)
         ])

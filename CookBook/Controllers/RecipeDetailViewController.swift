@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecipeDetailViewController: UIViewController {
     
@@ -22,7 +23,7 @@ class RecipeDetailViewController: UIViewController {
     
     private let recipeLabel: UILabel = {
         let label = UILabel()
-        label.text = "\(RecipeHTTPClient.shared.getRecipes()[0].title)"
+        label.text = "Chicken Sausage, White Bean and Cabbage Soup"
         label.textColor = .neutral100
         label.font = .poppinsBold24()
         label.numberOfLines = 0
@@ -86,6 +87,11 @@ class RecipeDetailViewController: UIViewController {
     }
     
     //MARK: - public
+    
+    func configure(with recipe: Recipe) {
+        fullVideoUIView.backgroundImage.kf.setImage(with: URL(string: recipe.image))
+        dishNameLabel.text = recipe.title
+    }
 }
 
 //MARK: - UITableViewDataSource
