@@ -14,7 +14,7 @@ struct MainRow: Hashable {
 }
 
 enum MainSection: Int, CaseIterable {
-    case trending = 0
+    case trending
     case popular
     case recent
     case chef
@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .rowLayout)
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(RecipeUIView.self, forCellWithReuseIdentifier: RecipeUIView.id)
+        collectionView.register(RecipeMainCell.self, forCellWithReuseIdentifier: RecipeMainCell.id)
         collectionView.register(PopularRecipeMainCell.self, forCellWithReuseIdentifier: PopularRecipeMainCell.id)
         collectionView.register(RecentRecipeCell.self, forCellWithReuseIdentifier: RecentRecipeCell.id)
         collectionView.register(ChefCell.self, forCellWithReuseIdentifier: ChefCell.id)
@@ -65,7 +65,8 @@ class MainViewController: UIViewController {
             let item = self.viewModel.rows[indexPath.section].items[indexPath.row]
             switch item {
             case let .trending(trend):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeUIView.id, for: indexPath) as? RecipeUIView else { return UICollectionViewCell()}
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeMainCell.id, for: indexPath) as? RecipeMainCell else { return UICollectionViewCell()}
+                cell.configure(with: trend)
                 return cell
             case let .popular(pop):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularRecipeMainCell.id, for: indexPath) as? PopularRecipeMainCell else { return UICollectionViewCell()}
