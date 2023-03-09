@@ -10,6 +10,8 @@ import Kingfisher
 
 class IngredientsTableViewCell: UITableViewCell {
     
+    let recipe = RecipeHTTPClient.shared.getRecipes()[4]
+    
     private let backgroundCell: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
@@ -64,9 +66,9 @@ class IngredientsTableViewCell: UITableViewCell {
     }
     
     func configure(with recipe: Recipe) {
-        ingredientImageView.kf.setImage(with: URL(string: recipe.image))
-        ingredientLabel.text = recipe.title
-        weightIngredientLabel.text = String(recipe.extendedIngredients.count)
+        ingredientImageView.kf.setImage(with: URL(string: recipe.extendedIngredients[1].image ?? "No image"))
+        ingredientLabel.text = recipe.extendedIngredients[1].name
+        weightIngredientLabel.text = String(format: "%0.f", recipe.extendedIngredients[1].measures.metric.amount) + " " + String(recipe.extendedIngredients[1].measures.metric.unitShort)
     }
 }
 
