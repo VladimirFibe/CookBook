@@ -105,7 +105,8 @@ extension RecipeDetailViewController: UITableViewDataSource {
             withIdentifier: idRecipeDetailTableViewCell,
             for: indexPath
         ) as! IngredientsTableViewCell
-        cell.configure(with: recipe)
+        let item = recipe.extendedIngredients[indexPath.row]
+        cell.configure(with: item)
         
         return cell
     }

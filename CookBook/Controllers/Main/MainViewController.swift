@@ -29,8 +29,12 @@ struct MainContent {
 
 private typealias DataSource = UICollectionViewDiffableDataSource<MainRow, MainItem>
 private typealias Snapshot = NSDiffableDataSourceSnapshot<MainRow, MainItem>
+
 class MainViewController: UIViewController {
 
+    private let store = MainStore()
+    private var bag = Bag()
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .rowLayout)
         collectionView.showsVerticalScrollIndicator = false
@@ -66,7 +70,8 @@ class MainViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: margin.bottomAnchor)
         ])
-        
+        setupObservers()
+        store.sendAction(.fetch)
         configureDataSouce()
         reloadData()
     }
@@ -110,6 +115,20 @@ class MainViewController: UIViewController {
         else { fatalError("Unable to dequeue ChefCell")}
         cell.configure(with: name)
         return cell
+    }
+    
+    private func setupObservers() {
+        store
+            .events
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case let .didLoadSections(main):
+                    self.viewModel.mainContent = main
+                    self.reloadData()
+                }
+            }.store(in: &bag)
     }
 }
 

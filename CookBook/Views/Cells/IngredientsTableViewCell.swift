@@ -65,10 +65,12 @@ class IngredientsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with recipe: Recipe) {
-        ingredientImageView.kf.setImage(with: URL(string: recipe.extendedIngredients[1].image ?? "No image"))
-        ingredientLabel.text = recipe.extendedIngredients[1].name
-        weightIngredientLabel.text = String(format: "%0.f", recipe.extendedIngredients[1].measures.metric.amount) + " " + String(recipe.extendedIngredients[1].measures.metric.unitShort)
+    func configure(with item: ExtendedIngredient) {
+        if let image = item.image {
+            ingredientImageView.kf.setImage(with: URL(string: image))
+        }
+        ingredientLabel.text = item.name
+        weightIngredientLabel.text = String(format: "%0.f", item.measures.metric.amount) + " " + String(item.measures.metric.unitShort)
     }
 }
 

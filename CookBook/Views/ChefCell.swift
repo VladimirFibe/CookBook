@@ -3,10 +3,23 @@ import SwiftUI
 class ChefCell: UICollectionViewCell {
     static let id = "ChefCell"
     
-    let imageView = RoundCornerImageView(image: UIImage(named: "Avatar"))
-    let label = UILabel()
+    let imageView = RoundCornerImageView(image: UIImage(named: "Avatar")).apply {
+        $0.contentMode = .scaleAspectFill
+        $0.layer.masksToBounds = true
+    }
+    let label = UILabel().apply {
+        $0.font = .cooking(.small, weight: .bold)
+        $0.numberOfLines = 1
+        $0.textColor = .neutral100
+        $0.textAlignment = .center
+    }
 
-    lazy var stack = UIStackView(arrangedSubviews: [imageView, label])
+    lazy var stack = UIStackView(arrangedSubviews: [imageView, label]).apply {
+        $0.axis = .vertical
+        $0.alignment = .fill
+        $0.distribution = .equalSpacing
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,18 +33,6 @@ class ChefCell: UICollectionViewCell {
 
     private func setupView() {
         contentView.addSubview(stack)
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.masksToBounds = true
-        label.font = .cooking(.small, weight: .bold)
-        label.numberOfLines = 1
-        label.textColor = .neutral100
-        label.textAlignment = .center
-
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.distribution = .equalSpacing
-        stack.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             stack.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -40,6 +41,7 @@ class ChefCell: UICollectionViewCell {
             stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
+    
     func configure(with title: String) {
         label.text = title
     }
