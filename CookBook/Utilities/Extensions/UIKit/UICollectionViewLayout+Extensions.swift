@@ -12,6 +12,7 @@ extension UICollectionViewLayout {
                 let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
                 
                 let section = NSCollectionLayoutSection(group: layoutGroup)
+                section.boundarySupplementaryItems = [header]
                 section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPaging
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
@@ -29,9 +30,10 @@ extension UICollectionViewLayout {
                 let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
+                section.boundarySupplementaryItems = [header]
                 section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPaging
-                
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
                 return section
             case .recent:
                 let itemSize = NSCollectionLayoutSize(
@@ -48,9 +50,9 @@ extension UICollectionViewLayout {
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
                 section.interGroupSpacing = 10
-
+                section.boundarySupplementaryItems = [header]
                 section.orthogonalScrollingBehavior = .groupPaging
-                
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
                 return section
             case .chef:
                 let itemSize = NSCollectionLayoutSize(
@@ -67,9 +69,9 @@ extension UICollectionViewLayout {
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
                 section.interGroupSpacing = 10
-
+                section.boundarySupplementaryItems = [header]
                 section.orthogonalScrollingBehavior = .groupPaging
-                
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
                 return section
             }
         }
@@ -77,5 +79,16 @@ extension UICollectionViewLayout {
         config.interSectionSpacing = 20
         layout.configuration = config
         return layout
+    }
+    
+    static var header: NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(54)
+        )
+        return NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
+        )
     }
 }

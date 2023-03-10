@@ -38,6 +38,7 @@ class MainViewController: UIViewController {
         collectionView.register(PopularRecipeMainCell.self, forCellWithReuseIdentifier: PopularRecipeMainCell.id)
         collectionView.register(RecentRecipeCell.self, forCellWithReuseIdentifier: RecentRecipeCell.id)
         collectionView.register(ChefCell.self, forCellWithReuseIdentifier: ChefCell.id)
+        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.id)
         return collectionView
     }()
     
@@ -47,6 +48,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)
+        title = "Get amazing recipes"
+        let searchController = UISearchController()
+        searchController.isActive = true
+        searchController.searchBar.placeholder = "Search recipes"
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         let margin = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
@@ -69,6 +77,11 @@ class MainViewController: UIViewController {
             case let .recent(recipe): return self.configure(RecentRecipeCell.self, with: recipe, for: indexPath)
             case let .chef(name): return self.configureChefs(with: name, for: indexPath)
             }
+        }
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.id, for: indexPath) as! SectionHeaderView
+            headerView.title.text = self?.viewModel.rows[indexPath.section].title
+            return headerView
         }
     }
     
