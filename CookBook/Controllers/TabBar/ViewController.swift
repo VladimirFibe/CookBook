@@ -5,16 +5,6 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-//        Task {
-//            do {
-//                let recipes = try await RecipeHTTPClient.shared.getRandomRecipes(number: 10)
-//                recipes.forEach {
-//                    print($0.title)
-//                }
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
     }
     
     private func configureUI() {
@@ -39,7 +29,7 @@ class ViewController: UITabBarController {
                                                selectedImage: UIImage(named: "NotificationActive")?.withRenderingMode(.alwaysOriginal))
         notification.view.backgroundColor = .systemBackground
         
-        let profile = UIViewController()
+        let profile = SavedRecipesVC()
         profile.tabBarItem = UITabBarItem(title: nil,
                                           image: UIImage(named: "ProfileInactive"),
                                           selectedImage: UIImage(named: "ProfileActive")?.withRenderingMode(.alwaysOriginal))
