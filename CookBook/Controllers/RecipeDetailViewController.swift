@@ -5,6 +5,8 @@ class RecipeDetailViewController: UIViewController {
     
     //MARK: - let/var
     
+    var recipe = RecipeHTTPClient.shared.getRecipes()[1]
+    
     var videoCreatorInfoStackView = UIStackView()
     var ingredientsStackView = UIStackView()
     
@@ -70,8 +72,6 @@ class RecipeDetailViewController: UIViewController {
         setDelegate()
         
         recipeDetailTableView.register(IngredientsTableViewCell.self, forCellReuseIdentifier: idRecipeDetailTableViewCell)
-        
-//        configure(with: recipe)
     }
     
     //MARK: - flow funcs
@@ -95,9 +95,7 @@ class RecipeDetailViewController: UIViewController {
 extension RecipeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        recipe.extendedIngredients.count
-        
-        3
+        recipe.extendedIngredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,8 +104,8 @@ extension RecipeDetailViewController: UITableViewDataSource {
             for: indexPath
         ) as! IngredientsTableViewCell
         
-//        let item = recipe.extendedIngredients[indexPath.row]
-//        cell.configure(with: item)
+        let item = recipe.extendedIngredients[indexPath.row]
+        cell.configure(with: item)
         
         return cell
     }
