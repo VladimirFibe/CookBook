@@ -5,7 +5,7 @@ class RecipeDetailViewController: UIViewController {
     
     //MARK: - let/var
     
-    var recipe = RecipeHTTPClient.shared.getRecipes()[1]
+    var recipe = RecipeHTTPClient.shared.getRecipes()[4]
     
     var videoCreatorInfoStackView = UIStackView()
     var ingredientsStackView = UIStackView()
@@ -118,6 +118,17 @@ extension RecipeDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
+    
+//    func tableView(_ tableView: UITableView,
+//            viewForHeaderInSection section: Int) -> UIView? {
+//
+//       return videoUIView
+//    }
+//    
+//    private func tableView(_ tableView: UITableView, heightForHeaderInSection indexPath: IndexPath) -> CGFloat {
+//        
+//        100
+//    }
 }
 
 //MARK: - extensions setupViews
