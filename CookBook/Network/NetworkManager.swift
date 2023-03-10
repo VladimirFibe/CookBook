@@ -54,7 +54,7 @@ class NetworkManager {
     }
     
     //Получение рецептов по категории стран
-    func getCuisineCategories(for country: Countries, completion: @escaping (Result<ResipesResult, Error>) -> Void) {
+    func getCuisineCategories(for country: Categories.Countries, completion: @escaping (Result<ResipesResult, Error>) -> Void) {
         //guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?cuisine=/(country.rowValue)") else { return }
         guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?cuisine=Korean") else { return }
         var request = URLRequest(url: url, timeoutInterval: .infinity)
@@ -98,4 +98,30 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    //Получение рецептов по типу
+    func getCuisineTypes(for type: Categories.Types, completion: @escaping (Result<ResipesResult, Error>) -> Void) {
+        //guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?tupe=/(type.rowValue)") else { return }
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?type=soup") else { return }
+        var request = URLRequest(url: url, timeoutInterval: .infinity)
+        request.addValue(ApiConstants.apiKey, forHTTPHeaderField: "x-api-key")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error { completion(.failure(error)) }
+            
+            if let dataResult = data {
+                do {
+                    let recipes = try JSONDecoder().decode(ResipesResult.self, from: dataResult)
+                    completion(.success(recipes))
+                } catch let error {
+                    completion(.failure(error))
+                }
+                
+            }
+            
+        }.resume()
+        
+    }
+    
 }
