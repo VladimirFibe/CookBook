@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class PopularRecipeMainCell: UICollectionViewCell {
+class PopularRecipeMainCell: UICollectionViewCell, SelfConfiguringCell {
     static let id = "PopularRecipeMainCell"
     
     let backView: UIView = {

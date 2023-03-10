@@ -1,14 +1,6 @@
-//
-//  SquareRecipeUIView.swift
-//  CookBook
-//
-//  Created by Василий Васильевич on 01.03.2023.
-//
-
 import SwiftUI
 
-class RecentRecipeCell: UICollectionViewCell {
-
+class RecentRecipeCell: UICollectionViewCell, SelfConfiguringCell {
     static let id = "RecentRecipeCell"
     
     let imageView = UIImageView(image: UIImage(named: "Food"))

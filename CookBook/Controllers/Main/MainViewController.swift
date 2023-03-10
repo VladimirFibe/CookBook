@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        let margin = view.layoutMarginsGuide
+        let margin = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: margin.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
@@ -64,22 +64,10 @@ class MainViewController: UIViewController {
         dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             let item = self.viewModel.rows[indexPath.section].items[indexPath.row]
             switch item {
-            case let .trending(trend):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeMainCell.id, for: indexPath) as? RecipeMainCell else { return UICollectionViewCell()}
-                cell.configure(with: trend)
-                return cell
-            case let .popular(pop):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularRecipeMainCell.id, for: indexPath) as? PopularRecipeMainCell else { return UICollectionViewCell()}
-                cell.configure(with: pop)
-                return cell
-            case let .recent(rec):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentRecipeCell.id, for: indexPath) as? RecentRecipeCell else { return UICollectionViewCell()}
-                cell.configure(with: rec)
-                return cell
-            case let .chef(che):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefCell.id, for: indexPath) as? ChefCell else { return UICollectionViewCell()}
-                cell.configure(with: che)
-                return cell
+            case let .trending(recipe): return self.configure(RecipeMainCell.self, with: recipe, for: indexPath)
+            case let .popular(recipe): return self.configure(PopularRecipeMainCell.self, with: recipe, for: indexPath)
+            case let .recent(recipe): return self.configure(RecentRecipeCell.self, with: recipe, for: indexPath)
+            case let .chef(name): return self.configureChefs(with: name, for: indexPath)
             }
         }
     }
@@ -92,6 +80,20 @@ class MainViewController: UIViewController {
             snapshot.appendItems($0.items, toSection: $0)
         }
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with recipe: Recipe, for indexPath: IndexPath) -> T {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: T.id, for: indexPath) as? T
+        else { fatalError("Unable to dequeue \(cellType)")}
+        cell.configure(with: recipe)
+        return cell
+    }
+    
+    func configureChefs(with name: String, for indexPath: IndexPath) -> ChefCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefCell.id, for: indexPath) as? ChefCell
+        else { fatalError("Unable to dequeue ChefCell")}
+        cell.configure(with: name)
+        return cell
     }
 }
 
@@ -133,8 +135,12 @@ final class MainViewModel {
             items: RecipeHTTPClient.shared.getRecipes().map { .recent($0)}),
         MainRow(
             index: MainSection.chef.rawValue,
-            title: "Popular creators",
-            items: ["Ify’s Kitchen", "Kathryn Murphy", "Jerome Bell"].map { .chef($0)})
+            title: "Команда намбер 7",
+            items: ["@alx_kkn", "@SHegor74", "@giicom", "@kikreen", "@ag70707", "@klevzhits_igor", "@vasilii_v123", "@macservicekz"].map { .chef($0)})
     ]
-    
+}
+
+protocol SelfConfiguringCell {
+    static var id: String { get }
+    func configure(with recipe: Recipe)
 }

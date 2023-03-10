@@ -138,6 +138,14 @@
 			path = CookBook;
 			sourceTree = "<group>";
 		};
+		27289F4729BABD630035E2D5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2700EC9329AF836E00DC3F3A /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		2786848029AFA704005D9FDB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +198,7 @@
 			children = (
 				270DAF7E29B580730019D472 /* TabBar */,
 				0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */,
-				2700EC9329AF836E00DC3F3A /* MainViewController.swift */,
+				27289F4729BABD630035E2D5 /* Main */,
 				6EFE8D5429AF916400BF1AC5 /* RecipeDetailViewController.swift */,
 				6E2B0D7D29B206F800DA0CC1 /* FavoriteViewController.swift */,
 				D804B2C129B2A1850097B2C6 /* SavedRecipesVC.swift */,

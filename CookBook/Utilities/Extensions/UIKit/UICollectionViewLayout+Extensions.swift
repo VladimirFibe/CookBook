@@ -2,33 +2,26 @@ import UIKit
 
 extension UICollectionViewLayout {
     static var rowLayout: UICollectionViewLayout {
-        UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
+        let layout =  UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
             let section = MainSection.allCases[sectionIndex]
             switch section {
             case .trending:
-                let bannerItemSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1)
-                )
-                let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
-                bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-                let bannerGroupSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.8),
-                    heightDimension: .absolute(254)
-                )
-                let bannerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: bannerGroupSize, subitems: [bannerItem])
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(254))
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
                 
-                let section = NSCollectionLayoutSection(group: bannerGroup)
+                let section = NSCollectionLayoutSection(group: layoutGroup)
                 section.interGroupSpacing = 10
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
                 return section
             case .popular:
-                let bannerItemSize = NSCollectionLayoutSize(
+                let itemSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .fractionalHeight(1)
                 )
-                let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
+                let bannerItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(150),
                     heightDimension: .absolute(231)
@@ -37,15 +30,15 @@ extension UICollectionViewLayout {
                 
                 let section = NSCollectionLayoutSection(group: bannerGroup)
                 section.interGroupSpacing = 10
-                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.orthogonalScrollingBehavior = .groupPaging
                 
                 return section
             case .recent:
-                let bannerItemSize = NSCollectionLayoutSize(
+                let itemSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .fractionalHeight(1)
                 )
-                let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
+                let bannerItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(124),
@@ -56,15 +49,15 @@ extension UICollectionViewLayout {
                 let section = NSCollectionLayoutSection(group: bannerGroup)
                 section.interGroupSpacing = 10
 
-                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.orthogonalScrollingBehavior = .groupPaging
                 
                 return section
             case .chef:
-                let bannerItemSize = NSCollectionLayoutSize(
+                let itemSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .fractionalHeight(1)
                 )
-                let bannerItem = NSCollectionLayoutItem(layoutSize: bannerItemSize)
+                let bannerItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 bannerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 let bannerGroupSize = NSCollectionLayoutSize(
                     widthDimension: .absolute(110),
@@ -75,10 +68,14 @@ extension UICollectionViewLayout {
                 let section = NSCollectionLayoutSection(group: bannerGroup)
                 section.interGroupSpacing = 10
 
-                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.orthogonalScrollingBehavior = .groupPaging
                 
                 return section
             }
         }
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        return layout
     }
 }

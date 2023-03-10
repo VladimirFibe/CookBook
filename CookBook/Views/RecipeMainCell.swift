@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class RecipeMainCell: UICollectionViewCell {
+class RecipeMainCell: UICollectionViewCell, SelfConfiguringCell {
     
     //MARK: - let/var
     
