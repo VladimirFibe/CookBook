@@ -34,11 +34,14 @@ class MainViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .rowLayout)
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
         collectionView.register(RecipeMainCell.self, forCellWithReuseIdentifier: RecipeMainCell.id)
         collectionView.register(PopularRecipeMainCell.self, forCellWithReuseIdentifier: PopularRecipeMainCell.id)
         collectionView.register(RecentRecipeCell.self, forCellWithReuseIdentifier: RecentRecipeCell.id)
         collectionView.register(ChefCell.self, forCellWithReuseIdentifier: ChefCell.id)
-        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.id)
+        collectionView.register(SectionHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: SectionHeaderView.id)
         return collectionView
     }()
     
@@ -156,4 +159,21 @@ final class MainViewModel {
 protocol SelfConfiguringCell {
     static var id: String { get }
     func configure(with recipe: Recipe)
+}
+
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = MainSection(rawValue: indexPath.section)
+        if section != .chef, let item = dataSource.itemIdentifier(for: indexPath) {
+            let controller = RecipeDetailViewController()
+            switch item {
+            case .popular(let recipe): controller.configure(with: recipe)
+            case .recent(let recipe): controller.configure(with: recipe)
+            case .trending(let recipe): controller.configure(with: recipe)
+            case .chef(_): return
+            }
+            navigationController?.pushViewController(controller, animated: true)
+            
+        }
+    }
 }

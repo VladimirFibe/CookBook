@@ -1,10 +1,3 @@
-//
-//  RecipeDetailViewController.swift
-//  CookBook
-//
-//  Created by Ildar Garifullin on 01/03/2023.
-//
-
 import UIKit
 import Kingfisher
 
@@ -72,7 +65,7 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         setupViews()
         setConstraints()
         
@@ -80,7 +73,7 @@ class RecipeDetailViewController: UIViewController {
         
         recipeDetailTableView.register(IngredientsTableViewCell.self, forCellReuseIdentifier: idRecipeDetailTableViewCell)
         
-        configure(with: recipe)
+//        configure(with: recipe)
     }
     
     //MARK: - flow funcs
