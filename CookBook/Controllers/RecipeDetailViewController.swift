@@ -85,10 +85,10 @@ class RecipeDetailViewController: UIViewController {
     
     //MARK: - public
     
-    func configure(with recipe: Recipe) {
+    func configure(with recipe: RecipeStruct) {
         videoUIView.backgroundImage.kf.setImage(with: URL(string: recipe.image))
         recipeLabel.text = recipe.title
-        itemsLabel.text = String(recipe.extendedIngredients.count) + " items"
+//        itemsLabel.text = String(recipe.extendedIngredients.count) + " items"
     }
 }
 
@@ -97,7 +97,8 @@ class RecipeDetailViewController: UIViewController {
 extension RecipeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipe.extendedIngredients.count
+//        recipe.extendedIngredients.count
+        10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,9 +106,8 @@ extension RecipeDetailViewController: UITableViewDataSource {
             withIdentifier: idRecipeDetailTableViewCell,
             for: indexPath
         ) as! IngredientsTableViewCell
-        let item = recipe.extendedIngredients[indexPath.row]
-        print(item)
-        cell.configure(with: item)
+//        let item = recipe.extendedIngredients[indexPath.row]
+//        cell.configure(with: item)
         
         return cell
     }

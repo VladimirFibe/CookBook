@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: - RecipeResponse
 struct RecipeResponse: Codable {
-    let recipes: [Recipe]
+    let recipes: [RecipeStruct]
 }
 
 // MARK: - Recipe

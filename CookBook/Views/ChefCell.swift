@@ -1,6 +1,6 @@
 import SwiftUI
-
-class ChefCell: UICollectionViewCell {
+import Kingfisher
+class ChefCell: UICollectionViewCell, SelfConfiguringCell {
     static let id = "ChefCell"
     
     let imageView = RoundCornerImageView(image: UIImage(named: "Avatar")).apply {
@@ -42,7 +42,8 @@ class ChefCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with title: String) {
-        label.text = title
+    func configure(with recipe: RecipeStruct) {
+        label.text = recipe.title
+        imageView.kf.setImage(with: URL(string: recipe.image))
     }
 }

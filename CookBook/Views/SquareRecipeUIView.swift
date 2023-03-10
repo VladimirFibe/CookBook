@@ -50,7 +50,7 @@ class RecentRecipeCell: UICollectionViewCell, SelfConfiguringCell {
         ])
     }
     
-    func configure(with recipe: Recipe) {
+    func configure(with recipe: RecipeStruct) {
         imageView.kf.setImage(with: URL(string: recipe.image))
         label.text = recipe.title
     }

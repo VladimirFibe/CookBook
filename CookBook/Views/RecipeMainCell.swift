@@ -79,7 +79,7 @@ class RecipeMainCell: UICollectionViewCell, SelfConfiguringCell {
     
     //MARK: - public
     
-    func configure(with recipe: Recipe) {
+    func configure(with recipe: RecipeStruct) {
         fullVideoUIView.backgroundImage.kf.setImage(with: URL(string: recipe.image))
         dishNameLabel.text = recipe.title
     }

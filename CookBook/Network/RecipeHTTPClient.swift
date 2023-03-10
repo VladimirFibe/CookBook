@@ -34,25 +34,8 @@ final class RecipeHTTPClient {
         try await RecipeHTTPClient.shared.makeRequest(path: "recipes/\(id)/information")
     }
     
-    func getRecipes() -> [Recipe] {
+    func getRecipes() -> [RecipeStruct] {
         let response = Bundle.main.decode(RecipeResponse.self, from: "Recipe.json")
         return response.recipes
-    }
-    
-    func mainFetch() async throws -> MainContent {
-        let recipe = try await getRecipe(id: 583757)
-        print("______________")
-        print(recipe)
-        let trendingsResponse: RecipeResponse = try await makeRequest(
-            path: "recipes/random",
-            params: ["number": "10"])
-        let popularResponse: ResipesResult = try await makeRequest(
-            path: "recipes/complexSearch",
-            params: ["sort": "popularity", "number": "10", "type": "breakfast"])
-        let trendings = trendingsResponse.recipes
-        let populars = popularResponse.results
-        let recents: [Recipe] = trendings.reversed()
-        let chefs: [String] = ["@alx_kkn", "@SHegor74", "@giicom", "@kikreen", "@ag70707", "@klevzhits_igor", "@vasilii_v123", "@macservicekz"]
-        return MainContent(trendings: trendings, populars: populars, recents: recents, chefs: chefs)
     }
 }

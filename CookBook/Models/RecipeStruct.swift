@@ -10,5 +10,5 @@ struct RecipeStruct: Codable, Hashable {
 //MARK: - Favorites recipes
 
 struct ResipesResult: Codable {
-    var results: [Recipe]
+    var results: [RecipeStruct]
 }
