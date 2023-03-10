@@ -1,10 +1,25 @@
 import Foundation
 
-enum Countries: String {
-    case African, American, British, Cajun, Caribbean, Chinese, Eastern, European, French,
-         German, Greek, Indian, Irish, Italian, Japanese, Jewish, Korean, Latin, Mediterranean,
-         Mexican, Middle, Nordic, Southern, Spanish, Thai, Vietnamese
+
+
+
+enum Categories {
+    
+    enum Countries: String {
+        case African, American, British, Cajun, Caribbean, Chinese, Eastern, European, French,
+             German, Greek, Indian, Irish, Italian, Japanese, Jewish, Korean, Latin, Mediterranean,
+             Mexican, Middle, Nordic, Southern, Spanish, Thai, Vietnamese
+    }
+    
+    enum Types: String {
+       case mainCourse = "main Course",
+            side, dish, dessert, appetizer, salad,
+            bread, breakfast, soup, beverage, sauce,
+            marinade, fingerfood, snack, drink
+    }
+    
 }
+
 
 
 fileprivate struct ApiConstants {
