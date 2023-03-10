@@ -10,8 +10,6 @@ import Kingfisher
 
 class IngredientsTableViewCell: UITableViewCell {
     
-    let recipe = RecipeHTTPClient.shared.getRecipes()[4]
-    
     private let backgroundCell: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
