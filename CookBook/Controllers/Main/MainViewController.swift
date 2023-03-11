@@ -193,7 +193,29 @@ extension MainViewController: UICollectionViewDelegate {
             case .chef(_): return
             }
             navigationController?.pushViewController(controller, animated: true)
-            
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        configureContextMenu(index: indexPath.row)
+    }
+ 
+    func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
+        let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+            let share = UIAction(title: "Поделиться", image: UIImage(systemName: "square.and.arrow.up"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                print("edit button clicked")
+                //add tasks...
+            }
+            let favorite = UIAction(title: "Добавить в избранное", image: UIImage(systemName: "heart"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                print("edit button clicked")
+                //add tasks...
+            }
+            let delete = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
+                print("delete button clicked")
+                //add tasks...
+            }
+            return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [share, favorite,delete])
+        }
+        return context
     }
 }
