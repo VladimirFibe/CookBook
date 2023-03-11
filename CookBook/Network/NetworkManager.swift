@@ -12,7 +12,7 @@ enum Categories {
     }
     
     enum Types: String {
-       case mainCourse = "main Course",
+       case mainCourse = "main+Course",
             side, dish, dessert, appetizer, salad,
             bread, breakfast, soup, beverage, sauce,
             marinade, fingerfood, snack, drink
@@ -101,7 +101,7 @@ class NetworkManager {
     
     //Получение рецептов по типу
     func getCuisineTypes(for type: Categories.Types, completion: @escaping (Result<ResipesResult, Error>) -> Void) {
-        //guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?tupe=/(type.rowValue)") else { return }
+        //guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?type=/(type.rowValue)") else { return }
         guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?type=soup") else { return }
         var request = URLRequest(url: url, timeoutInterval: .infinity)
         request.addValue(ApiConstants.apiKey, forHTTPHeaderField: "x-api-key")
