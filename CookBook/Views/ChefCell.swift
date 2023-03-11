@@ -44,6 +44,10 @@ class ChefCell: UICollectionViewCell, SelfConfiguringCell {
     
     func configure(with recipe: RecipeStruct) {
         label.text = recipe.title
-        imageView.kf.setImage(with: URL(string: recipe.image))
+        if let image = UIImage(named: recipe.title){
+            imageView.image = image
+        } else {
+            imageView.kf.setImage(with: URL(string: recipe.image))
+        }
     }
 }

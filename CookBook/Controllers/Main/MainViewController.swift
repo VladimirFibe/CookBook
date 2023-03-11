@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     private var bag = Bag()
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .rowLayout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
         collectionView.register(RecipeMainCell.self, forCellWithReuseIdentifier: RecipeMainCell.id)
