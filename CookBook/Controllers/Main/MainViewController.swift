@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 enum MainItem: Hashable {
     case trending(RecipeStruct)
@@ -56,6 +57,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(collectionView)
         title = "Get amazing recipes"
+        tabBarItem.title = ""
         let searchController = UISearchController()
         searchController.isActive = true
         searchController.searchBar.placeholder = "Search recipes"
@@ -184,35 +186,47 @@ protocol SelfConfiguringCell {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let section = MainSection(rawValue: indexPath.section)
-        if section != .chef, let item = dataSource.itemIdentifier(for: indexPath) {
+        if section != .chef, let recipe = getRecipe(from: indexPath) {
             let controller = RecipeDetailViewController()
-            switch item {
-            case .popular(let recipe): controller.configure(with: recipe)
-            case .recent(let recipe): controller.configure(with: recipe)
-            case .trending(let recipe): controller.configure(with: recipe)
-            case .chef(_): return
-            }
+            controller.configure(with: recipe)
             navigationController?.pushViewController(controller, animated: true)
         }
     }
     
+    func getRecipe(from indexPath: IndexPath) -> RecipeStruct? {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return nil }
+        switch item {
+        case .popular(let recipe): return recipe
+        case .recent(let recipe): return recipe
+        case .trending(let recipe): return recipe
+        case .chef(_): return nil
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        configureContextMenu(index: indexPath.row)
+        guard let recipe = getRecipe(from: indexPath) else { return nil }
+        return configureContextMenu(recipe: recipe)
     }
  
-    func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
+    func configureContextMenu(recipe: RecipeStruct) -> UIContextMenuConfiguration{
+        let heart = RecipiesManager.shared.recipies.contains(recipe)
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+            
             let share = UIAction(title: "Поделиться", image: UIImage(systemName: "square.and.arrow.up"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                print("edit button clicked")
-                //add tasks...
+                let image = UIImage(named: "TestImageSharwama")!
+                let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                shareController.popoverPresentationController?.permittedArrowDirections = .any
+                self.present(shareController, animated: true, completion: nil)
             }
-            let favorite = UIAction(title: "Добавить в избранное", image: UIImage(systemName: "heart"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                print("edit button clicked")
-                //add tasks...
+            let favorite = UIAction(title: "Добавить в избранное", image: UIImage(systemName: heart ? "heart.fill" : "heart"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                if heart {
+                    RecipiesManager.shared.recipies.remove(recipe)
+                } else {
+                    RecipiesManager.shared.recipies.insert(recipe)
+                }
             }
             let delete = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
-                print("delete button clicked")
-                //add tasks...
+                print("delete: ", recipe.title)
             }
             return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [share, favorite,delete])
         }

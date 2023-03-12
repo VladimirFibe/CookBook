@@ -50,7 +50,7 @@ class PopularRecipeMainCell: UICollectionViewCell, SelfConfiguringCell {
     }()
     
     let bookMarkImage: UIImageView = {
-        let bookMarkImage = UIImageView(image: UIImage(named: "BookmarkCircle"))
+        let bookMarkImage = UIImageView()
         bookMarkImage.translatesAutoresizingMaskIntoConstraints = false
         return bookMarkImage
     }()
@@ -100,5 +100,7 @@ class PopularRecipeMainCell: UICollectionViewCell, SelfConfiguringCell {
     func configure(with recipe: RecipeStruct) {
         foodImage.kf.setImage(with: URL(string: recipe.image))
         nameLabel.text = recipe.title
+        let image = UIImage(named: recipe.bookmark ? "BookmarkActive" : "BookmarkInactive")
+        bookMarkImage.image = image
     }
 }

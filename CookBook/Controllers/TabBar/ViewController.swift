@@ -24,13 +24,13 @@ class ViewController: UITabBarController {
         bookmark.view.backgroundColor = .systemBackground
         
         let notification = RecipeDetailViewController()
-        notification.tabBarItem = UITabBarItem(title: nil,
+        notification.tabBarItem = UITabBarItem(title: "",
                                                image: UIImage(named: "NotificationInactive"),
                                                selectedImage: UIImage(named: "NotificationActive")?.withRenderingMode(.alwaysOriginal))
         notification.view.backgroundColor = .systemBackground
         
         let profile = SavedRecipesVC()
-        profile.tabBarItem = UITabBarItem(title: nil,
+        profile.tabBarItem = UITabBarItem(title: "",
                                           image: UIImage(named: "ProfileInactive"),
                                           selectedImage: UIImage(named: "ProfileActive")?.withRenderingMode(.alwaysOriginal))
         profile.view.backgroundColor = .systemBackground

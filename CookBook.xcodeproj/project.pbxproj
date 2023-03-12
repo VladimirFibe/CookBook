@@ -24,6 +24,7 @@
 		27289F4B29BB111C0035E2D5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27289F4A29BB111C0035E2D5 /* Store.swift */; };
 		27289F4D29BB16770035E2D5 /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27289F4C29BB16770035E2D5 /* MainStore.swift */; };
 		27289F4F29BB399A0035E2D5 /* InlineConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27289F4E29BB399A0035E2D5 /* InlineConfigurable.swift */; };
+		2735E9FD29BD4E8500259793 /* RecipiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735E9FC29BD4E8500259793 /* RecipiesManager.swift */; };
 		273E93EB29B05DC8009F648F /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */; };
 		27408B5629B439A30091EC00 /* RoundCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408B5529B439A30091EC00 /* RoundCornerImageView.swift */; };
 		2786848229AFA71E005D9FDB /* SquareRecipeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */; };
@@ -69,6 +70,7 @@
 		27289F4A29BB111C0035E2D5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		27289F4C29BB16770035E2D5 /* MainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		27289F4E29BB399A0035E2D5 /* InlineConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineConfigurable.swift; sourceTree = "<group>"; };
+		2735E9FC29BD4E8500259793 /* RecipiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesManager.swift; sourceTree = "<group>"; };
 		273E93EA29B05DC8009F648F /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		27408B5529B439A30091EC00 /* RoundCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerImageView.swift; sourceTree = "<group>"; };
 		2786848129AFA71E005D9FDB /* SquareRecipeUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareRecipeUIView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				27CFAB1A29AE66C4001E5947 /* LocalState.swift */,
+				2735E9FC29BD4E8500259793 /* RecipiesManager.swift */,
 				27289F4A29BB111C0035E2D5 /* Store.swift */,
 				6E21DE9729AE555100386741 /* Extensions */,
 			);
@@ -385,6 +388,7 @@
 				27289F4F29BB399A0035E2D5 /* InlineConfigurable.swift in Sources */,
 				2726A4C829B60520002AA601 /* Recipe.swift in Sources */,
 				6EFE8D5B29AFCDE900BF1AC5 /* CreatorProfileUIView.swift in Sources */,
+				2735E9FD29BD4E8500259793 /* RecipiesManager.swift in Sources */,
 				6EFE8D5529AF916400BF1AC5 /* RecipeDetailViewController.swift in Sources */,
 				2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */,
 				6E2B0D7C29B2058D00DA0CC1 /* RecipeMainCell.swift in Sources */,

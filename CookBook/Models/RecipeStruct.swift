@@ -5,6 +5,9 @@ struct RecipeStruct: Codable, Hashable {
     let title: String
     let image: String
     let imageType: String
+    var bookmark: Bool {
+        RecipiesManager.shared.recipies.contains(self)
+    }
 }
 
 //MARK: - Favorites recipes

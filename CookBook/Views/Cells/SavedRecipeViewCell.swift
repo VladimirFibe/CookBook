@@ -1,13 +1,16 @@
-//
-//  SavedRecipeCell.swift
-//  CookBook
-//
-//  Created by Aleksandr Kan on 04/03/23.
-//
-
 import UIKit
+import Kingfisher
 
-class SavedRecipeViewCell: UICollectionViewCell {
+class SavedRecipeViewCell: UICollectionViewCell, SelfConfiguringCell {
+    static var id = "SavedRecipeViewCell"
+    
+    func configure(with recipe: RecipeStruct) {
+        imageDish.kf.setImage(with: URL(string: recipe.image))
+        nameLabel.text = recipe.title
+        if let image = UIImage(named: recipe.bookmark ? "BookmarkActive" : "BookmarkInactive") {
+            bookmarkButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+    }
     
     private let imageDish: UIImageView = {
        let imageView = UIImageView()
@@ -49,8 +52,6 @@ class SavedRecipeViewCell: UICollectionViewCell {
     
     private let bookmarkButton: UIButton = {
         let button = UIButton(type: .system)
-        let image = UIImage(named: "Bookmark")?.withRenderingMode(.alwaysOriginal)
-        button.setImage(image, for: .normal)
         button.backgroundColor = .white
         button.layer.cornerRadius =  16
         button.translatesAutoresizingMaskIntoConstraints = false

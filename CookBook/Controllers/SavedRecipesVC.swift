@@ -8,6 +8,7 @@
 import UIKit
 
 class SavedRecipesVC: UIViewController {
+    var recipes: [RecipeStruct] = Array(RecipiesManager.shared.recipies)
     
     private let mainLabel: UILabel = {
        let label = UILabel()
@@ -46,14 +47,18 @@ class SavedRecipesVC: UIViewController {
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
-    
-    private let idRecipeCell = "idRecipeCell"
-    
+        
     override func viewDidLoad() {
         setupViews()
         setupConstraints()
         setupDelegates()
-        collectionView.register(SavedRecipeViewCell.self, forCellWithReuseIdentifier: idRecipeCell)
+        collectionView.register(SavedRecipeViewCell.self, forCellWithReuseIdentifier: SavedRecipeViewCell.id)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recipes = Array(RecipiesManager.shared.recipies)
+        collectionView.reloadData()
     }
     
     
@@ -103,11 +108,12 @@ extension SavedRecipesVC {
 extension SavedRecipesVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 10
+        recipes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idRecipeCell, for: indexPath) as! SavedRecipeViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SavedRecipeViewCell.id, for: indexPath) as! SavedRecipeViewCell
+        cell.configure(with: recipes[indexPath.row])
         return cell
     }
     
