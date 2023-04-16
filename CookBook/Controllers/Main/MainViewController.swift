@@ -91,6 +91,17 @@ class MainViewController: UIViewController {
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.id, for: indexPath) as! SectionHeaderView
             headerView.title.text = self?.viewModel.rows[indexPath.section].title
+
+            if indexPath.section == MainSection.trending.rawValue {
+                headerView.button.isHidden = false
+                headerView.button.setTitle("See all", for: .normal)
+                headerView.button.setImage(headerView.arrowImage, for: .normal)
+            } else {
+                headerView.button.isHidden = true
+                headerView.button.setTitle(nil, for: .normal)
+                headerView.button.setImage(nil, for: .normal)
+            }
+
             return headerView
         }
     }
