@@ -35,6 +35,8 @@ class ViewController: UITabBarController {
                                           selectedImage: UIImage(named: "ProfileActive")?.withRenderingMode(.alwaysOriginal))
         profile.view.backgroundColor = .systemBackground
         
+        
+        
         setViewControllers([home, bookmark, notification, profile], animated: true)
     }
 }
