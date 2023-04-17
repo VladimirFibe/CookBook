@@ -97,7 +97,7 @@ class IngredientsTableViewCell: UITableViewCell {
 }
 
 extension IngredientsTableViewCell: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

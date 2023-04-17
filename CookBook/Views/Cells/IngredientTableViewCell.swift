@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class IngredientsTableViewCell: UITableViewCell {
+class IngredientTableViewCell: UITableViewCell {
     
     let recipe = RecipeHTTPClient.shared.getRecipes()[4]
     
@@ -76,7 +76,7 @@ class IngredientsTableViewCell: UITableViewCell {
 
 //MARK: - extensions setupViews
 
-extension IngredientsTableViewCell {
+extension IngredientTableViewCell {
     
     private func setupViews() {
         backgroundColor = .clear
@@ -91,7 +91,7 @@ extension IngredientsTableViewCell {
 
 //MARK: - extensions setConstraints
 
-extension IngredientsTableViewCell {
+extension IngredientTableViewCell {
     
     private func setConstraints() {
         

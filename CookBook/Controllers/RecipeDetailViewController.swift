@@ -71,7 +71,7 @@ class RecipeDetailViewController: UIViewController {
         
         setDelegate()
         
-        recipeDetailTableView.register(IngredientsTableViewCell.self, forCellReuseIdentifier: idRecipeDetailTableViewCell)
+        recipeDetailTableView.register(IngredientTableViewCell.self, forCellReuseIdentifier: idRecipeDetailTableViewCell)
         
 //        configure(with: recipe)
     }
@@ -105,7 +105,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: idRecipeDetailTableViewCell,
             for: indexPath
-        ) as! IngredientsTableViewCell
+        ) as! IngredientTableViewCell
 //        let item = recipe.extendedIngredients[indexPath.row]
 //        cell.configure(with: item)
         
