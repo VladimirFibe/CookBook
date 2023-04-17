@@ -5,12 +5,19 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+
     }
     
     private func configureUI() {
         setValue(CustomTabBar().self, forKey: "tabBar")
-//        guard let tabBar = self.tabBar as? CustomTabBar else { return }
-
+        guard let tabBar = self.tabBar as? CustomTabBar else { return }
+        
+        tabBar.didTabButton = {
+            let createRecipe = CreateRecipeViewController()
+            self.navigationController?.pushViewController(createRecipe, animated: true)
+            
+        }
+        
         let home = UINavigationController(rootViewController: MainViewController())
         home.tabBarItem = UITabBarItem(title: nil,
                                        image: UIImage(named: "HomeInactive"),
@@ -34,6 +41,8 @@ class ViewController: UITabBarController {
                                           image: UIImage(named: "ProfileInactive"),
                                           selectedImage: UIImage(named: "ProfileActive")?.withRenderingMode(.alwaysOriginal))
         profile.view.backgroundColor = .systemBackground
+        
+       
         
         setViewControllers([home, bookmark, notification, profile], animated: true)
     }

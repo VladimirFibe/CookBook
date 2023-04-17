@@ -10,6 +10,11 @@ struct RecipeStruct: Codable, Hashable {
     }
 }
 
+struct Ingredient {
+    var name: String?
+    var quantity: String?
+}
+
 //MARK: - Favorites recipes
 
 struct ResipesResult: Codable {
