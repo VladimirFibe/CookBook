@@ -256,6 +256,7 @@ final class CreateRecipeViewController: UIViewController {
         createRecipeButton.tintColor = .white
         createRecipeButton.layer.cornerRadius = 8
         createRecipeButton.backgroundColor = .primary50
+        createRecipeButton.addTarget(self, action: #selector(saveRecipe), for: .touchUpInside)
         scrollView.addSubview(createRecipeButton)
         
     }
@@ -417,6 +418,12 @@ final class CreateRecipeViewController: UIViewController {
     }
     
     //MARK: - objc functions for actions
+    
+    @objc func saveRecipe() {
+        //save ecipe to database...
+        print("Recipe has saved")
+        navigationController?.popViewController(animated: true)
+    }
     
     @objc func addIngredientCell() {
         numberOfCells += 1

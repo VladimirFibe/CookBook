@@ -77,7 +77,6 @@ final class CustomTabBar: UITabBar {
     
     @objc func middleButtonAction(_ sender: UIButton) {
         didTabButton?()
-        print("central button pressed")
     }
 }
 
