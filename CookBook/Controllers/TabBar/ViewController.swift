@@ -13,9 +13,8 @@ class ViewController: UITabBarController {
         guard let tabBar = self.tabBar as? CustomTabBar else { return }
         
         tabBar.didTabButton = {
-            let createRecipe = UINavigationController(rootViewController: CreateRecipeViewController())
-            createRecipe.modalPresentationStyle = .fullScreen
-            self.present(createRecipe, animated: true)
+            let createRecipe = CreateRecipeViewController()
+            self.navigationController?.pushViewController(createRecipe, animated: true)
             
         }
         
