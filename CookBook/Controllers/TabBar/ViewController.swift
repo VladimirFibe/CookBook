@@ -15,8 +15,9 @@ class ViewController: UITabBarController {
         tabBar.didTabButton = {
             let createRecipe = CreateRecipeViewController()
             self.navigationController?.pushViewController(createRecipe, animated: true)
-            
         }
+        
+        tabBar.tintColor = .primary30
         
         let home = MainViewController()
         home.tabBarItem = UITabBarItem(title: nil,
@@ -30,13 +31,12 @@ class ViewController: UITabBarController {
                                            selectedImage: UIImage(named: "BookmarkActive")?.withRenderingMode(.alwaysOriginal))
         bookmark.view.backgroundColor = .systemBackground
         
-        let notification = RecipeDetailViewController()
-        notification.tabBarItem = UITabBarItem(title: "",
-                                               image: UIImage(named: "NotificationInactive"),
-                                               selectedImage: UIImage(named: "NotificationActive")?.withRenderingMode(.alwaysOriginal))
-        notification.view.backgroundColor = .systemBackground
+        let toBuyItem = UIViewController()
+        toBuyItem.tabBarItem = UITabBarItem(title: nil,
+                                            image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
+        toBuyItem.view.backgroundColor = .systemBackground
         
-        let profile = SavedRecipesVC()
+        let profile = UIViewController()
         profile.tabBarItem = UITabBarItem(title: "",
                                           image: UIImage(named: "ProfileInactive"),
                                           selectedImage: UIImage(named: "ProfileActive")?.withRenderingMode(.alwaysOriginal))
@@ -44,7 +44,7 @@ class ViewController: UITabBarController {
         
        
         
-        setViewControllers([home, bookmark, notification, profile], animated: true)
+        setViewControllers([home, bookmark, toBuyItem, profile], animated: true)
     }
 }
 
