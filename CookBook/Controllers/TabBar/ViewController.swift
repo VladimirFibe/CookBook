@@ -18,13 +18,13 @@ class ViewController: UITabBarController {
             
         }
         
-        let home = UINavigationController(rootViewController: MainViewController())
+        let home = MainViewController()
         home.tabBarItem = UITabBarItem(title: nil,
                                        image: UIImage(named: "HomeInactive"),
                                        selectedImage: UIImage(named: "HomeActive")?.withRenderingMode(.alwaysOriginal))
         home.view.backgroundColor = .systemBackground
         
-        let bookmark = FavoriteViewController()
+        let bookmark = SavedRecipesVC()
         bookmark.tabBarItem = UITabBarItem(title: nil,
                                            image: UIImage(named: "BookmarkInactive"),
                                            selectedImage: UIImage(named: "BookmarkActive")?.withRenderingMode(.alwaysOriginal))
