@@ -57,7 +57,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(collectionView)
         title = "Get amazing recipes"
-        tabBarItem.title = ""
+        tabBarItem.title = nil
+        tabBarController?.tabBarItem.title = nil
         let searchController = UISearchController()
         searchController.isActive = true
         searchController.searchBar.placeholder = "Search recipes"
