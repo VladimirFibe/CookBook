@@ -15,6 +15,7 @@
 		04504A7629ED845600F9E4AC /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04504A7329ED845600F9E4AC /* CreateRecipeViewController.swift */; };
 		04504A7929ED85D700F9E4AC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04504A7829ED85D700F9E4AC /* SnapKit */; };
 		04504A7B29ED871800F9E4AC /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04504A7A29ED871800F9E4AC /* UITextFieldExtension.swift */; };
+		04A4621829F1624B00A64310 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4621729F1624B00A64310 /* SettingsViewController.swift */; };
 		2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700EC9329AF836E00DC3F3A /* MainViewController.swift */; };
 		270DAF8029B580D20019D472 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DAF7F29B580D20019D472 /* CustomTabBar.swift */; };
 		270DAF8329B5A4520019D472 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 270DAF8229B5A4520019D472 /* Kingfisher */; };
@@ -64,6 +65,7 @@
 		04504A7229ED845600F9E4AC /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		04504A7329ED845600F9E4AC /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
 		04504A7A29ED871800F9E4AC /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		04A4621729F1624B00A64310 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2700EC9329AF836E00DC3F3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		270DAF7F29B580D20019D472 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2711AB4D29AD016300E99592 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,14 @@
 				04504A7329ED845600F9E4AC /* CreateRecipeViewController.swift */,
 			);
 			path = AddRecipePage;
+			sourceTree = "<group>";
+		};
+		04A4621629F15E0900A64310 /* SettingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				04A4621729F1624B00A64310 /* SettingsViewController.swift */,
+			);
+			path = SettingsPage;
 			sourceTree = "<group>";
 		};
 		270DAF7E29B580730019D472 /* TabBar */ = {
@@ -231,6 +241,7 @@
 		27CFAB1F29AE6AA1001E5947 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04A4621629F15E0900A64310 /* SettingsPage */,
 				04504A7029ED845600F9E4AC /* AddRecipePage */,
 				270DAF7E29B580730019D472 /* TabBar */,
 				0096E45B29ADE18400247EC6 /* StartScreenViewController.swift */,
@@ -406,6 +417,7 @@
 				270DAF8029B580D20019D472 /* CustomTabBar.swift in Sources */,
 				27289F4D29BB16770035E2D5 /* MainStore.swift in Sources */,
 				27289F4B29BB111C0035E2D5 /* Store.swift in Sources */,
+				04A4621829F1624B00A64310 /* SettingsViewController.swift in Sources */,
 				2711AB5329AD016300E99592 /* SceneDelegate.swift in Sources */,
 				6E2B0D7E29B206F800DA0CC1 /* FavoriteViewController.swift in Sources */,
 				2726A4CA29B60681002AA601 /* RecipeHTTPClient.swift in Sources */,
