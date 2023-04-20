@@ -39,13 +39,13 @@ class ViewController: UITabBarController {
         bookmark.view.backgroundColor = .systemBackground
         
         let toBuy = UIViewController()
-        let toBuyItem = UITabBarItem(title: nil,image: UIImage(named: "Cart"), selectedImage: UIImage(named: "NotificationActive"))
+        let toBuyItem = UITabBarItem(title: nil,image: UIImage(named: "Cart"), selectedImage: UIImage(named: "CartFill"))
         toBuyItem.imageInsets = UIEdgeInsets(top: 11, left: 15, bottom: -11, right: -15)
         toBuy.tabBarItem = toBuyItem
         toBuy.view.backgroundColor = .systemBackground
         
         let settings = UIViewController()
-        let profileItem = UITabBarItem(title: "", image: UIImage(named: "Settings"),selectedImage: UIImage(named: "ProfileActive")?.withRenderingMode(.alwaysOriginal))
+        let profileItem = UITabBarItem(title: "", image: UIImage(named: "Settings"),selectedImage: UIImage(named: "SettingsFill")?.withRenderingMode(.alwaysOriginal))
         profileItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -5, right: 0)
         settings.tabBarItem = profileItem
         settings.view.backgroundColor = .systemBackground
