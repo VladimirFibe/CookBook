@@ -7,6 +7,11 @@ class ViewController: UITabBarController {
         configureUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tabBar.items?[0].title = ""
+    }
+    
     private func configureUI() {
         setValue(CustomTabBar().self, forKey: "tabBar")
         guard let tabBar = self.tabBar as? CustomTabBar else { return }
@@ -23,7 +28,7 @@ class ViewController: UITabBarController {
         let homeActiveImage = UIImage(named: "HomeActive")?.withRenderingMode(.alwaysOriginal)
         let homeItem = UITabBarItem(title: nil, image: homeInactiveImage, selectedImage: homeActiveImage)
         home.tabBarItem = homeItem
-        homeItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
+        homeItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         homeItem.title = nil
         home.view.backgroundColor = .systemBackground
         
