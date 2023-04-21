@@ -16,6 +16,7 @@
 		04504A7929ED85D700F9E4AC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04504A7829ED85D700F9E4AC /* SnapKit */; };
 		04504A7B29ED871800F9E4AC /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04504A7A29ED871800F9E4AC /* UITextFieldExtension.swift */; };
 		04A4621829F1624B00A64310 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4621729F1624B00A64310 /* SettingsViewController.swift */; };
+		0AA293FF29F2D20000A45A42 /* .gitignore_global in Resources */ = {isa = PBXBuildFile; fileRef = 0AA293FE29F2D20000A45A42 /* .gitignore_global */; };
 		2700EC9429AF836E00DC3F3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700EC9329AF836E00DC3F3A /* MainViewController.swift */; };
 		270DAF8029B580D20019D472 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DAF7F29B580D20019D472 /* CustomTabBar.swift */; };
 		270DAF8329B5A4520019D472 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 270DAF8229B5A4520019D472 /* Kingfisher */; };
@@ -66,6 +67,7 @@
 		04504A7329ED845600F9E4AC /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
 		04504A7A29ED871800F9E4AC /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		04A4621729F1624B00A64310 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0AA293FE29F2D20000A45A42 /* .gitignore_global */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore_global; path = ../../../../../../../.gitignore_global; sourceTree = "<group>"; };
 		2700EC9329AF836E00DC3F3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		270DAF7F29B580D20019D472 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2711AB4D29AD016300E99592 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 				04504A7129ED845600F9E4AC /* IngredientsTableViewCell.xib */,
 				04504A7229ED845600F9E4AC /* IngredientsTableViewCell.swift */,
 				04504A7329ED845600F9E4AC /* CreateRecipeViewController.swift */,
+				0AA293FE29F2D20000A45A42 /* .gitignore_global */,
 			);
 			path = AddRecipePage;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				27B97EA329B7FA2100626152 /* Recipe.json in Resources */,
 				2711AB5A29AD016400E99592 /* Assets.xcassets in Resources */,
 				6E21DE9329AE4FD300386741 /* Poppins-Regular.ttf in Resources */,
+				0AA293FF29F2D20000A45A42 /* .gitignore_global in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
