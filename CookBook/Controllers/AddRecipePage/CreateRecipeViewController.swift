@@ -234,7 +234,7 @@ final class CreateRecipeViewController: UIViewController {
         
         plusIngerientImageView = UIImageView()
         plusIngerientImageView.translatesAutoresizingMaskIntoConstraints = false
-        plusIngerientImageView.image = UIImage(named: "Union")
+        plusIngerientImageView.image = UIImage(named: "Plus")
         plusIngerientImageView.isUserInteractionEnabled = true
         let addTapGesture = UITapGestureRecognizer(target: self, action: #selector(addIngredientCell))
         plusIngerientImageView.addGestureRecognizer(addTapGesture)
