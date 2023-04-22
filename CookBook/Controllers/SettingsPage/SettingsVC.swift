@@ -1,9 +1,3 @@
-//
-//  ViewControllerSet.swift
-//  CookBook
-//
-//
-//
 
 import UIKit
 
