@@ -29,7 +29,7 @@ class FullVideoUIView: UIView {
         let button = UIButton(type: .system)
         let image = UIImage(named: "PlayButton")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        button.addTarget(FullVideoUIView.self, action: #selector(playButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -68,7 +68,7 @@ class FullVideoUIView: UIView {
         button.setImage(image, for: .normal)
         button.backgroundColor = .white
         button.layer.cornerRadius = 16
-        button.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
+        button.addTarget(FullVideoUIView.self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button

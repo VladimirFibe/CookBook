@@ -26,7 +26,7 @@ class VideoUIView: UIView {
         let button = UIButton(type: .system)
         let image = UIImage(named: "PlayButton")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        button.addTarget(VideoUIView.self, action: #selector(playButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
