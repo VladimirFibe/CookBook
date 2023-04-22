@@ -28,6 +28,8 @@ class SettingTableViewCell: UITableViewCell {
     
     private func setupOutlets() {
         
+        contentView.backgroundColor = .systemGray6
+        
         label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -54,9 +56,9 @@ class SettingTableViewCell: UITableViewCell {
         
     }
     
-    func setTextValues(label: String, value: String) {
-        self.label?.text = "label"
-        self.valueLabel?.text = "value"
+    func setTextValues(textData: SettingRow) {
+        self.label?.text = textData.label
+        self.valueLabel?.text = textData.value
     }
 
 }

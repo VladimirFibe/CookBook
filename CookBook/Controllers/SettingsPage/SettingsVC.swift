@@ -15,7 +15,7 @@ class SettingsVC: UIViewController {
     [SettingRow(label: "Product", value: "Cook Book"),
      SettingRow(label: "Compatability", value: "Iphone"),
      SettingRow(label: "Design", value: "Somebody arabian"),
-     SettingRow(label: "Website", value: "https://spoonacular.comhttps://spoonacular.com"),
+     SettingRow(label: "Website", value: "https://spoonacular.com"),
      SettingRow(label: "Varsion", value: "1.0")]
     let developersArray: [SettingRow] = [
     SettingRow(label: "", value: "Vladimir Fibe"),
@@ -46,7 +46,7 @@ class SettingsVC: UIViewController {
         
         tableViewSettings = UITableView(frame: CGRect.zero, style: .insetGrouped)
         tableViewSettings.translatesAutoresizingMaskIntoConstraints = false
-        tableViewSettings.backgroundColor = .yellow
+        tableViewSettings.backgroundColor = .systemBackground
         tableViewSettings.delegate = self
         tableViewSettings.dataSource = self
         tableViewSettings.register(UINib(nibName: "SettingTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingTableViewCell")
@@ -89,7 +89,9 @@ extension SettingsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") as? SettingTableViewCell else {return UITableViewCell()}
-        cell.setTextValues(label: "Label", value: "Value")
+        let textData = settingsRowsArray[indexPath.section][indexPath.row]
+        cell.setTextValues(textData: textData)
+        
         
         return cell
     }
