@@ -21,7 +21,7 @@ class SettingsVC: UIViewController {
     SettingRow(label: "", value: "Vladimir Fibe"),
     SettingRow(label: "", value: "Dmitry Lorents"),
     SettingRow(label: "", value: "Abylay Akhmetov")]
-    let settingsRowsArray: [ [SettingRow] ] = []
+    var settingsRowsArray: [ [SettingRow] ]!
     
     
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class SettingsVC: UIViewController {
     func setLayout() {
         
         view.backgroundColor = .systemBackground
-        let settingsRowsArray = [applicationArray, developersArray]
+        settingsRowsArray = [applicationArray, developersArray]
         
         appImageView = UIImageView()
         appImageView.image = UIImage(named: "AppIcon")
@@ -44,11 +44,12 @@ class SettingsVC: UIViewController {
         appImageView.layer.cornerRadius = 10
         view.addSubview(appImageView)
         
-        tableViewSettings = UITableView(frame: CGRect.zero, style: .grouped)
+        tableViewSettings = UITableView(frame: CGRect.zero, style: .insetGrouped)
         tableViewSettings.translatesAutoresizingMaskIntoConstraints = false
         tableViewSettings.backgroundColor = .yellow
         tableViewSettings.delegate = self
         tableViewSettings.dataSource = self
+        tableViewSettings.register(UINib(nibName: "SettingTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingTableViewCell")
         view.addSubview(tableViewSettings)
     }
     
@@ -87,7 +88,10 @@ extension SettingsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") as? SettingTableViewCell else {return UITableViewCell()}
+        cell.setTextValues(label: "Label", value: "Value")
+        
+        return cell
     }
     
     
