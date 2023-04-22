@@ -52,17 +52,25 @@ class SettingsVC: UIViewController {
         
         tableViewSettings = UITableView(frame: CGRect.zero, style: .grouped)
         tableViewSettings.translatesAutoresizingMaskIntoConstraints = false
+        tableViewSettings.backgroundColor = .yellow
         tableViewSettings.delegate = self
         tableViewSettings.dataSource = self
+        view.addSubview(tableViewSettings)
     }
     
     func setConstraints() {
+        
         appImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(100)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(200)
         }
         
+        tableViewSettings.snp.makeConstraints { make in
+            make.top.equalTo(appImageView.snp.bottom).inset(-20)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.snp_bottomMargin)
+        }
     }
 }
 
@@ -75,12 +83,17 @@ extension SettingsVC: UITableViewDelegate {
 //MARK: - TableView DataSource
 
 extension SettingsVC: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return settingsRowsArray.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return settingsRowsArray[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        return UITableViewCell()
     }
     
     
