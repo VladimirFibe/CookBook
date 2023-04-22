@@ -1,21 +1,23 @@
 //
-//  SettingsViewController.swift
+//  SettingsVC.swift
 //  CookBook
 //
-//  Created by Mac on 20.04.2023.
+//  Created by Дмитрий Лоренц on 22.04.2023.
 //
 
 import UIKit
 import SnapKit
 
-class SettingsViewController: ViewController {
+class SettingsVC: ViewController {
     
     var appImageView: UIImageView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setLayout()
         setConstraints()
+        
     }
     
     func setLayout() {
@@ -31,11 +33,10 @@ class SettingsViewController: ViewController {
     
     func setConstraints() {
         appImageView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().inset(100)
+            //            make.top.equalToSuperview().inset(100)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(300)
         }
+        
     }
-   
-
 }

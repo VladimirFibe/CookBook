@@ -44,7 +44,7 @@ class ViewController: UITabBarController {
         toBuy.tabBarItem = toBuyItem
         toBuy.view.backgroundColor = .systemBackground
         
-        let settings = UIViewController()
+        let settings = SettingsVC()
         let profileItem = UITabBarItem(title: "", image: UIImage(named: "Settings"),selectedImage: UIImage(named: "SettingsFill")?.withRenderingMode(.alwaysOriginal))
         profileItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -5, right: 0)
         settings.tabBarItem = profileItem
