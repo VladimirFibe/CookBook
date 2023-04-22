@@ -1,15 +1,14 @@
 //
-//  SettingsVC.swift
+//  ViewControllerSet.swift
 //  CookBook
 //
-//  Created by Дмитрий Лоренц on 22.04.2023.
+//
 //
 
 import UIKit
-import SnapKit
 
-class SettingsVC: ViewController {
-    
+class SettingsVC: UIViewController {
+
     var appImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -21,9 +20,10 @@ class SettingsVC: ViewController {
     }
     
     func setLayout() {
+        
         view.backgroundColor = .systemBackground
         
-        appImageView = UIImageView(frame: CGRect(x: 0, y: 100, width: 300, height: 300))
+        appImageView = UIImageView()
         appImageView.image = UIImage(named: "AppIcon")
         appImageView.clipsToBounds = true
         appImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,10 +33,11 @@ class SettingsVC: ViewController {
     
     func setConstraints() {
         appImageView.snp.makeConstraints { make in
-            //            make.top.equalToSuperview().inset(100)
+            make.top.equalToSuperview().inset(100)
             make.centerX.equalToSuperview()
-            make.height.width.equalTo(300)
+            make.width.height.equalTo(200)
         }
         
     }
 }
+
