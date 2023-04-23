@@ -34,6 +34,7 @@ class SettingTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .poppins(16, weight: .regular)
+        label.textColor = .neutral50
         contentView.addSubview(label)
         
         valueLabel = UILabel()
@@ -47,11 +48,11 @@ class SettingTableViewCell: UITableViewCell {
     private func setConstraints() {
         
         label.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(8)
+            make.top.leading.equalToSuperview().inset(10)
         }
         
         valueLabel.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(8)
+            make.top.trailing.equalToSuperview().inset(10)
         }
         
     }

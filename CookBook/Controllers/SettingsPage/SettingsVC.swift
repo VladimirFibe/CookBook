@@ -16,11 +16,12 @@ class SettingsVC: UIViewController {
      SettingRow(label: "Compatability", value: "Iphone"),
      SettingRow(label: "Design", value: "Somebody arabian"),
      SettingRow(label: "Website", value: "https://spoonacular.com"),
-     SettingRow(label: "Varsion", value: "1.0")]
+     SettingRow(label: "Version", value: "1.0")]
     let developersArray: [SettingRow] = [
     SettingRow(label: "", value: "Vladimir Fibe"),
     SettingRow(label: "", value: "Dmitry Lorents"),
-    SettingRow(label: "", value: "Abylay Akhmetov")]
+    SettingRow(label: "", value: "Abylay Akhmetov"),
+    SettingRow(label: "", value: "Vasiliy Dengin")]
     var settingsRowsArray: [ [SettingRow] ]!
     
     
@@ -56,9 +57,9 @@ class SettingsVC: UIViewController {
     func setConstraints() {
         
         appImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(100)
+            make.top.equalToSuperview().inset(60)
             make.centerX.equalToSuperview()
-            make.width.height.equalTo(200)
+            make.width.height.equalTo(150)
         }
         
         tableViewSettings.snp.makeConstraints { make in
@@ -72,6 +73,17 @@ class SettingsVC: UIViewController {
 //MARK: - TableView Delegate
 
 extension SettingsVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        headersArray[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = .poppins(16, weight: .regular)
+        header.textLabel?.frame = header.bounds
+        header.textLabel?.textAlignment = .left
+    }
     
 }
 
