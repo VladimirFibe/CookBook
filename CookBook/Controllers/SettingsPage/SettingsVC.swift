@@ -63,7 +63,7 @@ class SettingsVC: UIViewController {
         }
         
         tableViewSettings.snp.makeConstraints { make in
-            make.top.equalTo(appImageView.snp.bottom).inset(-20)
+            make.top.equalTo(appImageView.snp.bottom).inset(-10)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(view.snp_bottomMargin)
         }
@@ -80,9 +80,10 @@ extension SettingsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = .poppins(16, weight: .regular)
+        header.textLabel?.font = .poppins(16, weight: .semibold)
         header.textLabel?.frame = header.bounds
         header.textLabel?.textAlignment = .left
+        header.textLabel?.textColor = .neutral50
     }
     
 }
