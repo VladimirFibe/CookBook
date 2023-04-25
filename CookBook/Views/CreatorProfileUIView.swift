@@ -75,7 +75,7 @@ class CreatorProfileUIView: UIView {
         button.backgroundColor = .primary50
         button.titleLabel?.font = .poppinsSemiBold16()
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(followButtonTapped), for: .touchUpInside)
+        button.addTarget(CreatorProfileUIView.self, action: #selector(followButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
