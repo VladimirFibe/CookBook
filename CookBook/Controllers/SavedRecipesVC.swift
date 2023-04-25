@@ -9,6 +9,14 @@ import UIKit
 
 class SavedRecipesVC: UIViewController {
     var recipes: [RecipeStruct] = Array(RecipiesManager.shared.recipies)
+
+    private let emptyStateImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "absent")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     private let mainLabel: UILabel = {
        let label = UILabel()
@@ -53,12 +61,14 @@ class SavedRecipesVC: UIViewController {
         setupConstraints()
         setupDelegates()
         collectionView.register(SavedRecipeViewCell.self, forCellWithReuseIdentifier: SavedRecipeViewCell.id)
+        collectionView.backgroundView = recipes.isEmpty ? emptyStateImageView : nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recipes = Array(RecipiesManager.shared.recipies)
         collectionView.reloadData()
+        collectionView.backgroundView = recipes.isEmpty ? emptyStateImageView : nil
     }
     
     
